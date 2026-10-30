@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garbharakshya | Women's Health</title>
+<style>
+:root {
+  --green: #315c50;
+  --light: #edf4ef;
+  --cream: #fbf8f1;
+  --text: #293b35;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+}
+header {
+  background: var(--green);
+  color: white;
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+header h1 { margin: 0; font-size: 26px; }
+header p { margin: 2px 0 0; font-size: 13px; }
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 17px;
+  font-size: 15px;
+}
+.lang { background: white; color: var(--green); }
+.hero {
+  padding: 65px 8%;
+  text-align: center;
+  background: var(--light);
+}
+.hero h2 { font-size: 34px; color: var(--green); margin: 0 0 12px; }
+.hero p { max-width: 650px; margin: auto; }
+main { max-width: 950px; margin: 35px auto; padding: 0 18px; }
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 24px;
+  box-shadow: 0 3px 16px #263d3210;
+}
+h2, h3 { color: var(--green); }
+input {
+  padding: 12px;
+  border: 1px solid #b8c9bf;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 8px 0;
+  width: 100%;
+  max-width: 320px;
+}
+.primary { background: var(--green); color: white; }
+.result {
+  margin-top: 18px;
+  padding: 16px;
+  background: var(--light);
+  border-radius: 10px;
+  display: none;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.tile {
+  background: var(--light);
+  border-radius: 12px;
+  padding: 18px;
+}
+footer {
+  text-align: center;
+  padding: 28px;
+  background: var(--green);
+  color: white;
+}
+.small { font-size: 13px; color: #64756d; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Garbharakshya</h1>
+    <p>Women's Health & Pregnancy Care</p>
+  </div>
+  <button class="lang" onclick="toggleLanguage()" id="langButton">नेपाली</button>
+</header>
+
+<section class="hero">
+  <h2 id="welcome">Your journey to informed women's health</h2>
+  <p id="intro">Reliable health education and pregnancy guidance, thoughtfully created by an obstetrician and gynaecologist.</p>
+</section>
+
+<main>
+  <section class="card">
+    <h2 id="calcTitle">Pregnancy Due-Date Calculator</h2>
+    <p id="calcIntro">Enter the first day of your last menstrual period (LMP).</p>
+    <label for="lmp" id="dateLabel">First day of last menstrual period</label><br>
+    <input type="date" id="lmp">
+    <br>
+    <button class="primary" onclick="calculate()" id="calcButton">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+    <p class="small" id="calcNote">This is an estimate based on a 28-day cycle. Ultrasound and clinical assessment may be needed to confirm dates.</p>
+  </section>
+
+  <section class="card">
+    <h2 id="journeyTitle">Explore women's health</h2>
+    <div class="grid">
+      <div class="tile">
+        <h3 id="pregTitle">Pregnancy</h3>
+        <p id="pregText">Baby's development, antenatal visits, nutrition and pregnancy symptoms.</p>
+      </div>
+      <div class="tile">
+        <h3 id="pcosTitle">PCOS</h3>
+        <p id="pcosText">Understand irregular periods, hormonal health and treatment options.</p>
+      </div>
+      <div class="tile">
+        <h3 id="fertTitle">Fertility</h3>
+        <p id="fertText">Preconception health and evidence-based fertility information.</p>
+      </div>
+      <div class="tile">
+        <h3 id="periodTitle">Menstrual Health</h3>
+        <p id="periodText">Learn about periods, pain, abnormal bleeding and when to seek care.</p>
+      </div>
+      <div class="tile">
+        <h3 id="postTitle">Postpartum Care</h3>
+        <p id="postText">Recovery after childbirth, breastfeeding and maternal wellbeing.</p>
+      </div>
+      <div class="tile">
+        <h3 id="menoTitle">Menopause</h3>
+        <p id="menoText">Understand symptoms, healthy ageing and available support.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 id="aboutTitle">About the Founder</h2>
+    <p id="aboutText">Garbharakshya is founded by Dr. Yashu, an obstetrician and gynaecologist, with a vision to make trustworthy women's health information accessible to everyone.</p>
+  </section>
+
+  <section class="card">
+    <h2 id="safetyTitle">Important health information</h2>
+    <p id="safetyText">This website provides general educational information. It does not replace an individual consultation, diagnosis or treatment. If you have urgent symptoms during pregnancy, seek medical care promptly.</p>
+  </section>
+</main>
+
+<footer>
+  <strong>Garbharakshya</strong>
+  <p>Founded by Dr. Yashu</p>
+  <p class="small" style="color:white">Women's Health • Pregnancy • Wellbeing</p>
+</footer>
+
+<script>
+let nepali = false;
+
+function toggleLanguage() {
+  nepali = !nepali;
+  const translations = {
+    welcome: ["Your journey to informed women's health", "महिला स्वास्थ्यसम्बन्धी सही जानकारीतर्फ तपाईंको यात्रा"],
+    intro: ["Reliable health education and pregnancy guidance, thoughtfully created by an obstetrician and gynaecologist.", "स्त्रीरोग तथा प्रसूति विशेषज्ञद्वारा तयार पारिएको स्वास्थ्य तथा गर्भावस्थासम्बन्धी जानकारी।"],
+    calcTitle: ["Pregnancy Due-Date Calculator", "गर्भावस्थाको सम्भावित सुत्केरी मिति"],
+    calcIntro: ["Enter the first day of your last menstrual period (LMP).", "तपाईंको पछिल्लो महिनावारी सुरु भएको पहिलो मिति राख्नुहोस्।"],
+    dateLabel: ["First day of last menstrual period", "पछिल्लो महिनावारी सुरु भएको पहिलो दिन"],
+    calcButton: ["Calculate", "गणना गर्नुहोस्"],
+    calcNote: ["This is an estimate based on a 28-day cycle. Ultrasound and clinical assessment may be needed to confirm dates.", "यो २८ दिनको महिनावारी चक्रमा आधारित अनुमान हो। मिति निश्चित गर्न अल्ट्रासाउन्ड तथा चिकित्सकीय जाँच आवश्यक पर्न सक्छ।"],
+    journeyTitle: ["Explore women's health", "महिला स्वास्थ्यका विषयहरू"],
+    pregTitle: ["Pregnancy", "गर्भावस्था"],
+    pregText: ["Baby's development, antenatal visits, nutrition and pregnancy symptoms.", "शिशुको विकास, गर्भ जाँच, पोषण र गर्भावस्थाका लक्षणहरू।"],
+    pcosTitle: ["PCOS", "पीसीओएस"],
+    pcosText: ["Understand irregular periods, hormonal health and treatment options.", "अनियमित महिनावारी, हर्मोन र उपचारका विकल्पहरू बुझ्नुहोस्।"],
+    fertTitle: ["Fertility", "प्रजनन स्वास्थ्य"],
+    fertText: ["Preconception health and evidence-based fertility information.", "गर्भधारणपूर्व स्वास्थ्य र प्रजननसम्बन्धी जानकारी।"],
+    periodTitle: ["Menstrual Health", "महिनावारी स्वास्थ्य"],
+    periodText: ["Learn about periods, pain, abnormal bleeding and when to seek care.", "महिनावारी, दुखाइ, असामान्य रक्तस्राव र उपचारबारे जान्नुहोस्।"],
+    postTitle: ["Postpartum Care", "सुत्केरीपछिको हेरचाह"],
+    postText: ["Recovery after childbirth, breastfeeding and maternal wellbeing.", "सुत्केरीपछिको स्वास्थ्य, स्तनपान र आमाको स्याहार।"],
+    menoTitle: ["Menopause", "रजोनिवृत्ति"],
+    menoText: ["Understand symptoms, healthy ageing and available support.", "रजोनिवृत्तिका लक्षण र स्वास्थ्यसम्बन्धी जानकारी।"],
+    aboutTitle: ["About the Founder", "संस्थापकको बारेमा"],
+    aboutText: ["Garbharakshya is founded by Dr. Yashu, an obstetrician and gynaecologist, with a vision to make trustworthy women's health information accessible to everyone.", "Garbharakshya स्त्रीरोग तथा प्रसूति विशेषज्ञ डा. यशुद्वारा विश्वसनीय महिला स्वास्थ्य जानकारी सबैको पहुँचमा पुर्‍याउने उद्देश्यले स्थापना गरिएको हो।"],
+    safetyTitle: ["Important health information", "महत्त्वपूर्ण स्वास्थ्य जानकारी"],
+    safetyText: ["This website provides general educational information. It does not replace an individual consultation, diagnosis or treatment. If you have urgent symptoms during pregnancy, seek medical care promptly.", "यो वेबसाइट सामान्य स्वास्थ्य शिक्षाका लागि हो। यसले व्यक्तिगत चिकित्सकीय परामर्श, निदान वा उपचारको स्थान लिँदैन। गर्भावस्थामा आपत्कालीन लक्षण देखिए तुरुन्त स्वास्थ्य संस्थामा जानुहोस्।"]
+  };
+
+  for (const id in translations) {
+    document.getElementById(id).textContent = translations[id][nepali ? 1 : 0];
+  }
+  document.getElementById("langButton").textContent = nepali ? "English" : "नेपाली";
+  document.documentElement.lang = nepali ? "ne" : "en";
+  document.getElementById("result").style.display = "none";
+}
+
+function calculate() {
+  const value = document.getElementById("lmp").value;
+  const result = document.getElementById("result");
+
+  if (!value) {
+    alert(nepali ? "कृपया मिति छान्नुहोस्।" : "Please select your LMP date.");
+    return;
+  }
+
+  const lmp = new Date(value + "T00:00:00");
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  if (lmp > today) {
+    alert(nepali ? "भविष्यको मिति राख्न मिल्दैन।" : "Please enter a date that is not in the future.");
+    return;
+  }
+
+  const days = Math.floor((today - lmp) / 86400000);
+  const weeks = Math.floor(days / 7);
+  const extraDays = days % 7;
+  const edd = new Date(lmp);
+  edd.setDate(edd.getDate() + 280);
+
+  const dateFormat = {day:"numeric", month:"long", year:"numeric"};
+  const dueDate = edd.toLocaleDateString(nepali ? "ne-NP" : "en-GB", dateFormat);
+
+  result.style.display = "block";
+  result.innerHTML = nepali
+    ? "<strong>गर्भावस्थाको अवधि:</strong> " + weeks + " हप्ता " + extraDays + " दिन<br><strong>सम्भावित सुत्केरी मिति:</strong> " + dueDate
+    : "<strong>Estimated pregnancy duration:</strong> " + weeks + " weeks " + extraDays + " days<br><strong>Estimated due date:</strong> " + dueDate;
+}
+</script>
+</body>
+</html>
