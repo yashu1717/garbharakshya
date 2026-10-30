@@ -4,7 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garbharakshya | Women's Health</title>
-<style>
+/* Pregnancy week-by-week guide */
+.week-guide {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 24px;
+  box-shadow: 0 3px 16px #263d3210;
+}
+.week-guide select {
+  padding: 12px;
+  border: 1px solid #b8c9bf;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 320px;
+  margin: 10px 0;
+}
+.week-progress {
+  height: 9px;
+  background: #edf4ef;
+  border-radius: 20px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+.week-progress span {
+  display: block;
+  height: 100%;
+  background: #315c50;
+  transition: width .3s;
+}
+.week-content {
+  background: #edf4ef;
+  padding: 18px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+.week-content h3 { margin-top: 0; }
+.week-content h4 { margin-bottom: 5px; }
+.week-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+}
+.week-nav button { background: #315c50; color: white; }
+.week-danger {
+  background: #fff3ed;
+  border-left: 4px solid #b75b35;
+  padding: 14px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+  <style>
 :root {
   --green: #315c50;
   --light: #edf4ef;
@@ -107,7 +159,49 @@ footer {
 </section>
 
 <main>
-  <section class="card">
+ <section class="week-guide" id="pregnancyGuide">
+  <h2 id="guideTitle">Pregnancy Week-by-Week Guide</h2>
+  <p id="guideIntro">Explore your baby's development and your health throughout pregnancy.</p>
+
+  <label for="pregWeek" id="weekLabel">Select pregnancy week:</label>
+  <br>
+  <select id="pregWeek" onchange="showPregnancyWeek()">
+  </select>
+
+  <div class="week-progress">
+    <span id="weekProgress"></span>
+  </div>
+
+  <div class="week-content">
+    <h3 id="weekHeading">Week 1</h3>
+
+    <h4 id="babyHeading">Baby's development</h4>
+    <p id="babyDevelopment"></p>
+
+    <h4 id="motherHeading">Changes in mother</h4>
+    <p id="motherChanges"></p>
+
+    <h4 id="careHeading">Antenatal care</h4>
+    <p id="antenatalCare"></p>
+
+    <h4 id="tipsHeading">Healthy habits</h4>
+    <p id="healthyTips"></p>
+  </div>
+
+  <div class="week-danger">
+    <h4 id="dangerHeading">Warning signs</h4>
+    <p id="dangerText"></p>
+  </div>
+
+  <div class="week-nav">
+    <button onclick="changeWeek(-1)" id="prevWeek">← Previous</button>
+    <button onclick="changeWeek(1)" id="nextWeek">Next →</button>
+  </div>
+
+  <p class="small" id="guideDisclaimer">
+    Educational information only. Individual antenatal care should follow your clinician's advice.
+  </p>
+</section> <section class="card">
     <h2 id="calcTitle">Pregnancy Due-Date Calculator</h2>
     <p id="calcIntro">Enter the first day of your last menstrual period (LMP).</p>
     <label for="lmp" id="dateLabel">First day of last menstrual period</label><br>
@@ -236,7 +330,175 @@ function calculate() {
   result.innerHTML = nepali
     ? "<strong>गर्भावस्थाको अवधि:</strong> " + weeks + " हप्ता " + extraDays + " दिन<br><strong>सम्भावित सुत्केरी मिति:</strong> " + dueDate
     : "<strong>Estimated pregnancy duration:</strong> " + weeks + " weeks " + extraDays + " days<br><strong>Estimated due date:</strong> " + dueDate;
+}const pregnancyWeeks = [
+["Implantation has not occurred yet; pregnancy dating starts from your last period.","अन्तिम महिनावारीबाट गर्भावस्थाको गणना सुरु हुन्छ; भ्रूण बनेको हुँदैन।"],
+["Ovulation may occur near the end of this week.","यस हप्ताको अन्त्यतिर अण्डोत्सर्जन हुन सक्छ।"],
+["If fertilisation occurred, the embryo travels toward the uterus.","निषेचन भएमा भ्रूण पाठेघर तर्फ यात्रा गर्छ।"],
+["Implantation may occur and pregnancy tests may become positive.","भ्रूण पाठेघरमा टाँसिन सक्छ र गर्भ परीक्षण पोजिटिभ आउन सक्छ।"],
+["Early brain, spinal cord and heart structures begin developing.","मस्तिष्क, मेरुदण्ड र मुटुको प्रारम्भिक संरचना विकास हुन थाल्छ।"],
+["The embryo grows rapidly and early limb buds develop.","भ्रूण तीव्र रूपमा बढ्छ र हातखुट्टाका प्रारम्भिक भाग विकास हुन्छन्।"],
+["Early facial features and organs continue developing.","अनुहारका प्रारम्भिक भाग र अंगहरूको विकास जारी रहन्छ।"],
+["The embryo is now generally called a fetus.","यस अवस्थादेखि भ्रूणलाई सामान्यतया गर्भस्थ शिशु भनिन्छ।"],
+["Fingers, toes and facial features become more distinct.","हातका औँला, खुट्टाका औँला र अनुहारका भाग स्पष्ट हुँदै जान्छन्।"],
+["The fetus continues growing and moving.","गर्भस्थ शिशुको वृद्धि र चाल जारी रहन्छ।"],
+["Bones and joints continue developing.","हड्डी र जोर्नीहरूको विकास जारी रहन्छ।"],
+["The fetus approaches the end of the first trimester.","गर्भस्थ शिशु पहिलो त्रैमासिकको अन्त्यतिर पुग्छ।"],
+["The second trimester begins; growth continues.","दोस्रो त्रैमासिक सुरु हुन्छ र वृद्धि जारी रहन्छ।"],
+["The fetus develops more coordinated movements.","गर्भस्थ शिशुको चाल अझ समन्वित हुँदै जान्छ।"],
+["The skeleton continues developing.","हड्डीको संरचना विकास हुँदै जान्छ।"],
+["The nervous system and muscles develop further.","स्नायु प्रणाली र मांसपेशीको विकास जारी रहन्छ।"],
+["The fetus becomes more active.","गर्भस्थ शिशु अझ सक्रिय हुँदै जान्छ।"],
+["The detailed anatomy scan is commonly performed around this period.","यस अवधिमा शिशुको विस्तृत अंग परीक्षण गर्ने अल्ट्रासाउन्ड गरिन्छ।"],
+["Movements may become noticeable to the mother.","आमाले शिशुको चाल महसुस गर्न सुरु गर्न सक्नुहुन्छ।"],
+["The fetus continues growing and developing its skin.","गर्भस्थ शिशुको वृद्धि र छालाको विकास जारी रहन्छ।"],
+["The fetus gains length and continues moving.","गर्भस्थ शिशुको लम्बाइ बढ्छ र चाल जारी रहन्छ।"],
+["The lungs and sensory systems continue developing.","फोक्सो र इन्द्रिय प्रणालीको विकास जारी रहन्छ।"],
+["The fetus continues gaining weight.","गर्भस्थ शिशुको तौल बढ्दै जान्छ।"],
+["The fetus responds increasingly to sounds.","गर्भस्थ शिशुले आवाजप्रति प्रतिक्रिया दिन सक्छ।"],
+["The lungs continue developing.","फोक्सोको विकास जारी रहन्छ।"],
+["The fetus gains weight and practises breathing movements.","शिशुको तौल बढ्छ र सास फेर्ने अभ्यासजस्ता चाल हुन्छन्।"],
+["The brain and lungs continue maturing.","मस्तिष्क र फोक्सो परिपक्व हुँदै जान्छन्।"],
+["The fetus continues developing its nervous system.","स्नायु प्रणालीको विकास जारी रहन्छ।"],
+["The fetus gains fat under the skin.","छालामुनि बोसो जम्मा हुन थाल्छ।"],
+["The third trimester begins.","तेस्रो त्रैमासिक सुरु हुन्छ।"],
+["The brain develops rapidly.","मस्तिष्कको विकास तीव्र हुन्छ।"],
+["The fetus continues gaining weight.","शिशुको तौल बढ्दै जान्छ।"],
+["The lungs continue maturing.","फोक्सो परिपक्व हुँदै जान्छ।"],
+["The fetus practises coordinated movements and breathing.","शिशुले समन्वित चाल र सास फेर्ने अभ्यास गर्छ।"],
+["The fetus continues building fat stores.","शिशुको शरीरमा बोसो जम्मा हुँदै जान्छ।"],
+["The fetus may move toward a head-down position.","शिशु टाउको तल हुने अवस्थातिर आउन सक्छ।"],
+["The fetus continues preparing for birth.","शिशु जन्मका लागि तयार हुँदै जान्छ।"],
+["The fetus approaches term and continues maturing.","शिशु सुत्केरी समय नजिकिँदै परिपक्व हुँदै जान्छ।"],
+["This is early term; brain and lung development continues.","यो प्रारम्भिक पूर्ण अवधि हो; मस्तिष्क र फोक्सोको विकास जारी रहन्छ।"],
+["The pregnancy is now full term.","गर्भावस्था पूर्ण अवधि पुगेको छ।"],
+["The estimated due date is around this week; birth timing varies.","यस हप्ता सम्भावित सुत्केरी मिति पर्छ; जन्म हुने समय फरक हुन सक्छ।"]
+];
+
+const pregnancyInfo = {
+en: {
+mother: [
+"Menstrual changes or no noticeable pregnancy symptoms.",
+"Nausea, tiredness, breast tenderness and frequent urination may occur.",
+"Energy may improve; abdominal growth may become noticeable.",
+"Backache, heartburn and constipation may occur. Movements become more noticeable.",
+"Pelvic pressure, breathlessness and sleep difficulty may increase."
+],
+care: [
+"Record your LMP. Start folic acid 400 micrograms daily when planning pregnancy. Review medicines.",
+"Arrange antenatal booking. Discuss blood tests, dating ultrasound and first-trimester screening.",
+"Attend the anatomy scan around 18–22 weeks. Review blood pressure, urine and screening results.",
+"Glucose screening is commonly offered at 24–28 weeks. Review haemoglobin and vaccination advice.",
+"Attend regular antenatal visits. Discuss fetal position, birth planning and monitoring."
+],
+tips: [
+"Avoid alcohol, smoking and unprescribed medicines. Eat a balanced diet and take folic acid.",
+"Eat small frequent meals if nauseated. Stay hydrated and continue appropriate activity.",
+"Eat iron-rich foods, maintain hydration and follow safe exercise advice.",
+"Know your baby's usual movement pattern. Seek help for reduced movements.",
+"Prepare your birth plan and transport. Do not use medicines or herbs to induce labour yourself."
+],
+trimester: ["First trimester","Second trimester","Third trimester"]
+},
+ne: {
+mother: [
+"महिनावारी हुन सक्छ वा गर्भावस्थाको कुनै लक्षण नदेखिन सक्छ।",
+"वाकवाकी, थकान, स्तन दुख्ने र बारम्बार पिसाब लाग्न सक्छ।",
+"ऊर्जा बढ्न सक्छ र पेट बढ्न सुरु हुन सक्छ।",
+"ढाड दुख्ने, छाती पोल्ने र कब्जियत हुन सक्छ। शिशुको चाल महसुस हुन थाल्छ।",
+"पेल्भिक दबाब, सास फेर्न गाह्रो र निद्रामा समस्या बढ्न सक्छ।"
+],
+care: [
+"अन्तिम महिनावारीको मिति टिप्नुहोस्। गर्भधारणको योजना हुँदा फोलिक एसिड ४०० माइक्रोग्राम दैनिक लिनुहोस्।",
+"गर्भ जाँच सुरु गर्नुहोस्। रगत परीक्षण, डेटिङ अल्ट्रासाउन्ड र पहिलो त्रैमासिक स्क्रिनिङबारे सल्लाह लिनुहोस्।",
+"१८–२२ हप्तामा शिशुको विस्तृत अंग परीक्षण गराउनुहोस्। रक्तचाप, पिसाब र परीक्षणको नतिजा जाँच्नुहोस्।",
+"२४–२८ हप्तामा मधुमेह परीक्षण गरिन्छ। हेमोग्लोबिन र खोपबारे सल्लाह लिनुहोस्।",
+"नियमित गर्भ जाँचमा जानुहोस्। शिशुको अवस्था, जन्म योजना र आवश्यक निगरानीबारे छलफल गर्नुहोस्।"
+],
+tips: [
+"मदिरा, धुम्रपान र आफूखुसी औषधि सेवन नगर्नुहोस्। सन्तुलित खाना र फोलिक एसिड लिनुहोस्।",
+"वाकवाकी भए थोरै-थोरै खाना खानुहोस्। पर्याप्त पानी पिउनुहोस्।",
+"फलामयुक्त खाना खानुहोस्, पर्याप्त पानी पिउनुहोस् र सुरक्षित व्यायाम गर्नुहोस्।",
+"शिशुको सामान्य चाल थाहा पाउनुहोस्। चाल कम भए तुरुन्त जाँच गराउनुहोस्।",
+"जन्म योजना र यातायातको व्यवस्था गर्नुहोस्। घरमै औषधि वा जडीबुटीले प्रसव सुरु गर्ने प्रयास नगर्नुहोस्।"
+],
+trimester: ["पहिलो त्रैमासिक","दोस्रो त्रैमासिक","तेस्रो त्रैमासिक"]
 }
+};
+
+function showPregnancyWeek() {
+  const week = Number(document.getElementById("pregWeek").value);
+  const data = pregnancyWeeks[week - 1];
+  const lang = nepali ? "ne" : "en";
+  const info = pregnancyInfo[lang];
+  const stage = week <= 13 ? 0 : week <= 27 ? 2 : 4;
+  const trimester = week <= 13 ? 0 : week <= 27 ? 1 : 2;
+
+  document.getElementById("weekHeading").textContent =
+    (nepali ? "गर्भावस्थाको हप्ता " : "Pregnancy Week ") + week;
+
+  document.getElementById("babyDevelopment").textContent = data[nepali ? 1 : 0];
+  document.getElementById("motherChanges").textContent = info.mother[week <= 4 ? 0 : week <= 12 ? 1 : week <= 20 ? 2 : week <= 29 ? 3 : 4];
+  document.getElementById("antenatalCare").textContent = info.care[week <= 12 ? 1 : week <= 23 ? 2 : week <= 29 ? 3 : 4];
+  document.getElementById("healthyTips").textContent = info.tips[week <= 12 ? 0 : week <= 20 ? 1 : week <= 27 ? 2 : week <= 35 ? 3 : 4];
+
+  document.getElementById("weekProgress").style.width = (week / 40 * 100) + "%";
+
+  document.getElementById("guideTitle").textContent =
+    nepali ? "गर्भावस्था: हप्तैपिच्छे" : "Pregnancy Week-by-Week Guide";
+
+  document.getElementById("guideIntro").textContent =
+    nepali ? "आमा र शिशुको स्वास्थ्य तथा विकासबारे जान्नुहोस्।" :
+    "Explore your baby's development and your health throughout pregnancy.";
+
+  document.getElementById("weekLabel").textContent =
+    nepali ? "गर्भावस्थाको हप्ता छान्नुहोस्:" : "Select pregnancy week:";
+
+  document.getElementById("babyHeading").textContent =
+    nepali ? "शिशुको विकास" : "Baby's development";
+  document.getElementById("motherHeading").textContent =
+    nepali ? "आमाको शरीरमा परिवर्तन" : "Changes in mother";
+  document.getElementById("careHeading").textContent =
+    nepali ? "गर्भ जाँच" : "Antenatal care";
+  document.getElementById("tipsHeading").textContent =
+    nepali ? "स्वस्थ बानी" : "Healthy habits";
+
+  document.getElementById("dangerHeading").textContent =
+    nepali ? "खतरा संकेतहरू" : "Warning signs";
+
+  document.getElementById("dangerText").textContent =
+    nepali ?
+    "धेरै रगत बग्ने, कडा पेट दुख्ने, बेहोस हुने, कडा टाउको दुख्ने, आँखा धमिलो हुने, ज्वरो आउने, पानी बग्ने वा शिशुको चाल कम हुने भए तुरुन्त स्वास्थ्य संस्था जानुहोस्।" :
+    "Seek urgent care for heavy bleeding, severe abdominal pain, fainting, severe headache, visual symptoms, fever, leaking fluid or reduced fetal movements.";
+
+  document.getElementById("guideDisclaimer").textContent =
+    nepali ?
+    "यो सामान्य शैक्षिक जानकारी हो। व्यक्तिगत गर्भ जाँच र उपचारका लागि चिकित्सकको सल्लाह लिनुहोस्।" :
+    "Educational information only. Individual antenatal care should follow your clinician's advice.";
+
+  document.getElementById("prevWeek").textContent =
+    nepali ? "← अघिल्लो" : "← Previous";
+  document.getElementById("nextWeek").textContent =
+    nepali ? "अर्को →" : "Next →";
+
+  document.getElementById("prevWeek").disabled = week === 1;
+  document.getElementById("nextWeek").disabled = week === 40;
+}
+
+function changeWeek(amount) {
+  const select = document.getElementById("pregWeek");
+  const next = Math.max(1, Math.min(40, Number(select.value) + amount));
+  select.value = next;
+  showPregnancyWeek();
+}
+
+for (let i = 1; i <= 40; i++) {
+  const option = document.createElement("option");
+  option.value = i;
+  option.textContent = "Week " + i;
+  document.getElementById("pregWeek").appendChild(option);
+}
+
+showPregnancyWeek();
 </script>
 </body>
 </html>
