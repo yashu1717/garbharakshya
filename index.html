@@ -297,6 +297,16 @@ function toggleLanguage() {
   document.getElementById("langButton").textContent = nepali ? "English" : "नेपाली";
   document.documentElement.lang = nepali ? "ne" : "en";
   document.getElementById("result").style.display = "none";
+}const weekSelect = document.getElementById("pregWeek");
+
+if (weekSelect) {
+  Array.from(weekSelect.options).forEach((option, index) => {
+    option.textContent = nepali
+      ? "हप्ता " + (index + 1)
+      : "Week " + (index + 1);
+  });
+
+  showPregnancyWeek();
 }
 
 function calculate() {
