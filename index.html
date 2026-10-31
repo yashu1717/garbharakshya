@@ -337,7 +337,51 @@ const pregnancyWeeks = {
   39: ["The baby is full term.", "शिशु पूर्ण अवधिमा पुगेको छ।"],
   40: ["This is the estimated due-date week.", "यो सम्भावित प्रसव मिति पर्ने हप्ता हो।"]
 };
+const motherWeeks = {
+  1: [
+    "Usually, there are no pregnancy-related symptoms yet.",
+    "सामान्यतया यस हप्तामा गर्भावस्थासँग सम्बन्धित लक्षण देखिँदैनन्।"
+  ],
+  2: [
+    "Ovulation may occur. You may not notice any specific symptoms.",
+    "यस समयमा डिम्ब निष्कासन हुन सक्छ। विशेष लक्षण नदेखिन सक्छन्।"
+  ],
+  3: [
+    "If fertilization occurs, early embryo development begins. Most women have no symptoms.",
+    "निषेचन भएमा भ्रूणको प्रारम्भिक विकास सुरु हुन्छ। धेरै महिलामा कुनै लक्षण हुँदैन।"
+  ],
+  4: [
+    "Some women may notice a missed period, mild cramps or breast tenderness.",
+    "महिनावारी रोकिने, हल्का पेट दुख्ने वा स्तन दुख्ने हुन सक्छ।"
+  ],
+  5: [
+    "Fatigue, nausea, breast tenderness and frequent urination may begin.",
+    "थकान, वाकवाकी, स्तन दुख्ने र बारम्बार पिसाब लाग्ने हुन सक्छ।"
+  ]
+};
 
+const doctorWeeks = {
+  1: [
+    "If planning pregnancy, take folic acid 400 micrograms daily and review regular medicines with your doctor.",
+    "गर्भधारणको योजना बनाउँदै हुनुहुन्छ भने दैनिक ४०० माइक्रोग्राम फोलिक एसिड लिनुहोस् र नियमित औषधिबारे चिकित्सकसँग सल्लाह गर्नुहोस्।"
+  ],
+  2: [
+    "Continue folic acid. Avoid alcohol, smoking and tobacco while trying to conceive.",
+    "फोलिक एसिड जारी राख्नुहोस्। गर्भधारणको प्रयास गर्दा मदिरा, धूम्रपान र सुर्तीजन्य पदार्थबाट टाढा रहनुहोस्।"
+  ],
+  3: [
+    "Continue folic acid. If pregnancy is possible, avoid alcohol and check with your doctor before taking medicines.",
+    "फोलिक एसिड जारी राख्नुहोस्। गर्भ रहेको सम्भावना छ भने मदिरा सेवन नगर्नुहोस् र औषधि लिनुअघि चिकित्सकसँग सल्लाह गर्नुहोस्।"
+  ],
+  4: [
+    "If your period is late, take a pregnancy test. Contact your doctor if positive.",
+    "महिनावारी रोकिएको छ भने गर्भ परीक्षण गर्नुहोस्। परीक्षण पोजिटिभ आएमा चिकित्सकसँग सम्पर्क गर्नुहोस्।"
+  ],
+  5: [
+    "After a positive pregnancy test, arrange your first antenatal visit. Seek urgent care for severe pain or heavy bleeding.",
+    "गर्भ परीक्षण पोजिटिभ आएपछि पहिलो गर्भ जाँचको व्यवस्था गर्नुहोस्। धेरै पेट दुखेमा वा धेरै रक्तस्राव भएमा तुरुन्त स्वास्थ्य संस्थामा जानुहोस्।"
+  ]
+};
 const select = document.getElementById("weekSelect");
 
 for (let i = 1; i <= 40; i++) {
@@ -381,15 +425,18 @@ document.querySelectorAll(".week-btn").forEach((button, index) => {
     pregnancyWeeks[week][isNepali ? 1 : 0];
 
   document.getElementById("motherInfo").textContent =
-    isNepali
-    ? "यस समयमा थकान, वाकवाकी वा अन्य लक्षण हुन सक्छन्। हरेक गर्भावस्था फरक हुन्छ।"
-    : "You may experience fatigue, nausea or other symptoms. Every pregnancy is different.";
+  motherWeeks[week]
+    ? motherWeeks[week][isNepali ? 1 : 0]
+    : (isNepali
+      ? "यस समयमा आमाको शरीरमा विभिन्न परिवर्तन हुन सक्छन्।"
+      : "Your body may experience different changes during this stage.");
 
   document.getElementById("doctorInfo").textContent =
-    isNepali
-    ? "नियमित गर्भ जाँच गर्नुहोस्। रक्तस्राव, पानी बग्ने वा तीव्र पेट दुखाइ भए तुरुन्त स्वास्थ्य संस्थामा जानुहोस्।"
-    : "Attend regular antenatal checkups. Seek urgent care for bleeding, leaking fluid or severe abdominal pain.";
-
+  doctorWeeks[week]
+    ? doctorWeeks[week][isNepali ? 1 : 0]
+    : (isNepali
+      ? "नियमित गर्भ जाँच गर्नुहोस्। कुनै समस्या भए चिकित्सकसँग सम्पर्क गर्नुहोस्।"
+      : "Attend regular antenatal checkups and contact your doctor if you have concerns.");
 }
 
 function changeLanguage() {
