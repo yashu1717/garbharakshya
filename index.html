@@ -186,7 +186,19 @@ footer {
   #weekGrid {
     grid-template-columns: repeat(4, 1fr);
   }
-}</style>
+}.about-section {
+  padding: 30px 20px;
+  margin: 25px 0;
+  background: #fff5f7;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.about-section h2 {
+  color: #a8325a;
+}
+</style>
 </head>
 
 <body>
@@ -902,7 +914,7 @@ function changeLanguage() {
   <script>
     
 function calculateEDD() {
-  alert("Calculator button is working!");
+ 
   const calendar = document.getElementById("calendarType").value;
   const lmp = document.getElementById("lmpDate").value.trim();
   const result = document.getElementById("eddResult");
@@ -933,5 +945,28 @@ function calculateEDD() {
   }
 }
 </script>
+  <section id="about" class="about-section">
+  <h2>About Dr. Yashu | डा. यशु</h2>
+
+  <p>
+    Welcome to Garbharakhsya!
+  </p>
+
+  <p>
+    Garbharakhsya is a pregnancy education platform
+    created by Dr. Yashu to help women understand
+    pregnancy through reliable, evidence-based information.
+  </p>
+
+  <p>
+    गर्भावस्थासम्बन्धी सही र विश्वसनीय जानकारी
+    प्रदान गर्ने उद्देश्यले गर्भारक्षा तयार गरिएको हो।
+  </p>
+
+  <p>
+    Our goal is to support every mother through
+    every stage of pregnancy.
+  </p>
+</section>
   </body>
 </html>
