@@ -158,7 +158,35 @@ footer {
     font-size: 30px;
   }
 }
-</style>
+.week-calendar {
+  margin-top: 30px;
+}
+
+#weekGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.week-btn {
+  background: #e7f2eb;
+  color: #287c68;
+  padding: 14px 5px;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+.week-btn.active {
+  background: #287c68;
+  color: white;
+}
+
+@media(max-width:450px) {
+  #weekGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}</style>
 </head>
 
 <body>
@@ -208,7 +236,16 @@ footer {
     <select id="weekSelect" onchange="showWeek()">
       <option value="">Choose a week</option>
     </select>
+<div class="week-calendar">
 
+  <h3 data-en="Choose Your Pregnancy Week"
+      data-np="आफ्नो गर्भावस्थाको हप्ता छान्नुहोस्">
+    Choose Your Pregnancy Week
+  </h3>
+
+  <div id="weekGrid"></div>
+
+</div>
     <div id="weekHeading"></div>
     <div id="trimester"></div>
 
@@ -309,13 +346,29 @@ for (let i = 1; i <= 40; i++) {
   option.textContent = "Week " + i;
   select.appendChild(option);
 }
+const weekGrid = document.getElementById("weekGrid");
 
+for (let i = 1; i <= 40; i++) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "week-btn";
+  button.textContent = i;
+
+  button.addEventListener("click", function () {
+    select.value = i;
+    showWeek();
+  });
+
+  weekGrid.appendChild(button);
+}
 function showWeek() {
 
   const week = Number(select.value);
 
   if (!week) return;
-
+document.querySelectorAll(".week-btn").forEach((button, index) => {
+  button.classList.toggle("active", index + 1 === week);
+});
   const trimester = week <= 13 ? 1 : week <= 27 ? 2 : 3;
 
   document.getElementById("weekHeading").textContent =
