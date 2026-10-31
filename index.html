@@ -868,6 +868,69 @@ function changeLanguage() {
 }
 
 </script>
+<section id="eddCalculator" class="edd-section">   <h2>EDD Calculator | प्रसूति मिति गणक</h2>    <p>     Calculate your expected date of delivery.     <br>     आफ्नो प्रसूति मिति थाहा पाउनुहोस्।   </p>    <label for="calendarType">     Select Calendar / पात्रो छान्नुहोस्   </label>    <select id="calendarType">     <option value="AD">English Calendar (AD)</option>     <option value="BS">नेपाली पात्रो (BS)</option>   </select>    <label for="lmpDate">     First day of last menstrual period (LMP)     <br>     अन्तिम महिनावारी भएको पहिलो दिन   </label>    <input     type="text"     id="lmpDate"     placeholder="YYYY-MM-DD"   >    <button type="button" onclick="calculateEDD()">     Calculate EDD | मिति गणना गर्नुहोस्   </button>    <div id="eddResult"></div> </section>
+  <h2>EDD Calculator | प्रसूति मिति गणक</h2>
+  <p>Calculate your expected date of delivery.</p>
 
-</body>
+  <label for="calendarType">
+    Select Calendar / पात्रो छान्नुहोस्
+  </label>
+
+  <select id="calendarType">
+    <option value="AD">English Calendar (AD)</option>
+    <option value="BS">नेपाली पात्रो (BS)</option>
+  </select>
+
+  <label for="lmpDate">
+    First Day of Last Menstrual Period (LMP)
+    <span>अन्तिम महिनावारी भएको पहिलो दिन</span>
+  </label>
+
+  <input
+    type="date"
+    id="lmpDate"
+    placeholder="Select LMP date"
+  >
+
+  <button type="button" onclick="calculateEDD()">
+    Calculate EDD
+  </button>
+
+  <div id="eddResult"></div>
+</section>
+
+  <script>
+    
+function calculateEDD() {
+  const calendar = document.getElementById("calendarType").value;
+  const lmp = document.getElementById("lmpDate").value.trim();
+  const result = document.getElementById("eddResult");
+
+  if (!lmp) {
+    result.innerHTML = "Please enter your LMP date.";
+    return;
+  }
+
+  if (calendar === "AD") {
+    const date = new Date(lmp + "T12:00:00");
+
+    if (isNaN(date.getTime())) {
+      result.innerHTML = "Please enter a valid AD date.";
+      return;
+    }
+
+    const edd = new Date(date);
+    edd.setDate(edd.getDate() + 280);
+
+    result.innerHTML =
+      "<h3>Your Expected Due Date</h3>" +
+      "<p>EDD (AD): " + edd.toLocaleDateString("en-GB") + "</p>" +
+      "<p>For accurate BS conversion, we'll add the Nepali calendar engine next.</p>";
+  } else {
+    result.innerHTML =
+      "BS date conversion will be activated in the next step.";
+  }
+}
+</script>
+  </body>
 </html>
