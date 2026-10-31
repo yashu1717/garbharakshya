@@ -296,46 +296,166 @@ footer {
 let isNepali = false;
 
 const pregnancyWeeks = {
-  1: ["Pregnancy is dated from the first day of the last menstrual period.", "गर्भावस्थाको गणना अन्तिम महिनावारी सुरु भएको पहिलो दिनबाट गरिन्छ।"],
-  2: ["Ovulation usually occurs around this time.", "यस समयमा सामान्यतया डिम्ब निष्कासन हुन्छ।"],
-  3: ["Fertilization may occur and the embryo begins developing.", "यस समयमा निषेचन हुन सक्छ र भ्रूण विकास हुन थाल्छ।"],
-  4: ["The embryo may implant in the uterus.", "भ्रूण पाठेघरमा टाँसिन सक्छ।"],
-  5: ["The early brain, spinal cord and heart structures develop.", "मस्तिष्क, मेरुदण्ड र मुटुको प्रारम्भिक संरचना विकास हुन्छ।"],
-  6: ["Early heart activity may be visible on ultrasound.", "अल्ट्रासाउन्डमा मुटुको प्रारम्भिक गतिविधि देखिन सक्छ।"],
-  7: ["The brain and facial structures develop.", "मस्तिष्क र अनुहारका अंगहरू विकास हुन्छन्।"],
-  8: ["The arms and legs are developing.", "हातखुट्टाको विकास हुँदैछ।"],
-  9: ["The embryo is now called a fetus.", "अब भ्रूणलाई फेटस भनिन्छ।"],
-  10: ["Fingers and toes become more distinct.", "हात र खुट्टाका औँलाहरू स्पष्ट हुँदैछन्।"],
-  11: ["Facial features continue developing.", "अनुहारका अंगहरूको विकास जारी छ।"],
-  12: ["The fetus moves, but the mother usually cannot feel it yet.", "शिशु चलिरहेको हुन्छ तर आमाले अझै चाल महसुस नगर्न सक्छिन्।"],
-  13: ["The first trimester is ending.", "पहिलो त्रैमासिक समाप्त हुँदैछ।"],
-  14: ["The second trimester begins.", "दोस्रो त्रैमासिक सुरु हुन्छ।"],
-  15: ["The baby's bones are developing.", "शिशुका हड्डीहरू विकास हुँदैछन्।"],
-  16: ["The baby's movements become more coordinated.", "शिशुको चाल अझ समन्वित हुँदैछ।"],
-  17: ["Fat begins developing under the baby's skin.", "शिशुको छालामुनि बोसो जम्मा हुन थाल्छ।"],
-  18: ["The baby's ears and nervous system develop.", "शिशुको कान र स्नायु प्रणाली विकास हुँदैछन्।"],
-  19: ["A protective coating begins covering the baby's skin.", "शिशुको छालामा सुरक्षात्मक तह बन्न थाल्छ।"],
-  20: ["The anatomy scan is usually performed around this period.", "यस समयमा सामान्यतया एनाटोमी स्क्यान गरिन्छ।"],
-  21: ["The baby's digestive system develops.", "शिशुको पाचन प्रणाली विकास हुँदैछ।"],
-  22: ["The baby's lungs continue developing.", "शिशुको फोक्सो विकास हुँदैछ।"],
-  23: ["The baby's hearing develops.", "शिशुको सुन्ने क्षमता विकास हुँदैछ।"],
-  24: ["The baby's lungs are still immature.", "शिशुको फोक्सो अझै पूर्ण विकसित भएको छैन।"],
-  25: ["The baby's skin becomes less transparent.", "शिशुको छाला बाक्लो हुँदैछ।"],
-  26: ["The baby's eyes continue developing.", "शिशुका आँखाहरू विकास हुँदैछन्।"],
-  27: ["Brain development continues rapidly.", "मस्तिष्कको विकास तीव्र गतिमा जारी छ।"],
-  28: ["The third trimester begins.", "तेस्रो त्रैमासिक सुरु हुन्छ।"],
-  29: ["The baby's muscles and bones develop.", "शिशुका मांसपेशी र हड्डी विकास हुँदैछन्।"],
-  30: ["The baby's brain grows rapidly.", "शिशुको मस्तिष्क तीव्र रूपमा बढ्दैछ।"],
-  31: ["The nervous system continues maturing.", "स्नायु प्रणाली परिपक्व हुँदैछ।"],
-  32: ["The baby's bones are developed, but the skull remains flexible.", "शिशुका हड्डीहरू विकसित भएका छन् तर टाउकोको हड्डी लचिलो रहन्छ।"],
-  33: ["The immune system continues developing.", "रोग प्रतिरोधात्मक क्षमता विकास हुँदैछ।"],
-  34: ["The lungs continue maturing.", "फोक्सो अझ परिपक्व हुँदैछ।"],
-  35: ["The brain and nervous system continue maturing.", "मस्तिष्क र स्नायु प्रणाली परिपक्व हुँदैछन्।"],
-  36: ["The baby is approaching full term.", "शिशु पूर्ण अवधिको नजिक पुग्दैछ।"],
-  37: ["The pregnancy is now early term.", "गर्भावस्था प्रारम्भिक पूर्ण अवधिमा पुगेको छ।"],
-  38: ["The baby continues gaining weight.", "शिशुको तौल बढ्दैछ।"],
-  39: ["The baby is full term.", "शिशु पूर्ण अवधिमा पुगेको छ।"],
-  40: ["This is the estimated due-date week.", "यो सम्भावित प्रसव मिति पर्ने हप्ता हो।"]
+ 1: [
+  "Week 1 is counted from the first day of the last menstrual period. Conception has not yet occurred.",
+  "पहिलो हप्ता अन्तिम महिनावारी सुरु भएको पहिलो दिनबाट गणना गरिन्छ। यस समयमा गर्भाधान भएको हुँदैन।"
+],
+2: [
+  "The body prepares for ovulation. An egg usually develops and is released around the end of this week.",
+  "शरीर डिम्ब निष्कासनका लागि तयार हुन्छ। सामान्यतया यस हप्ताको अन्त्यतिर डिम्ब निष्कासन हुन सक्छ।"
+],
+3: [
+  "Fertilization may occur when sperm meets the egg. The fertilized egg divides into multiple cells and travels towards the uterus.",
+  "शुक्रकीट र डिम्बको मिलनबाट निषेचन हुन सक्छ। निषेचित डिम्ब विभाजित हुँदै पाठेघर तर्फ यात्रा गर्छ।"
+],
+4: [
+  "The developing blastocyst may implant into the uterine lining. Early structures that will contribute to the placenta begin developing.",
+  "विकसित ब्लास्टोसिस्ट पाठेघरको भित्री तहमा बस्न सक्छ। सालनाल बन्न सहयोग गर्ने प्रारम्भिक संरचनाहरू विकास हुन थाल्छन्।"
+],
+5: [
+  "The embryo is developing rapidly. The neural tube, which forms the brain and spinal cord, is developing. Early heart structures are also forming.",
+  "भ्रूणको तीव्र विकास भइरहेको हुन्छ। मस्तिष्क र मेरुदण्ड बन्ने न्युरल ट्युब विकास हुँदैछ। मुटुको प्रारम्भिक संरचना पनि बन्न थाल्छ।"
+],
+  6: [
+  "The embryo is growing rapidly. Early brain regions are developing, and the heart is beginning to beat. Limb buds are becoming more visible.",
+  "भ्रूणको तीव्र विकास भइरहेको हुन्छ। मस्तिष्कका प्रारम्भिक भागहरू विकास हुँदैछन् र मुटुको धड्कन सुरु हुन थालेको हुन्छ। हातखुट्टाका प्रारम्भिक भागहरू स्पष्ट हुँदैछन्।"
+],
+7: [
+  "The brain continues developing. The eyes, ears and facial structures are becoming more defined. Arms and legs are growing.",
+  "मस्तिष्कको विकास जारी रहन्छ। आँखा, कान र अनुहारका संरचनाहरू अझ स्पष्ट हुँदैछन्। हातखुट्टा बढ्दैछन्।"
+],
+8: [
+  "Fingers and toes begin to form. The major organs are developing, although they are not yet fully mature. The embryo makes small movements.",
+  "हात र खुट्टाका औँलाहरू बन्न थाल्छन्। प्रमुख अंगहरू विकास भइरहेका हुन्छन् तर पूर्ण रूपमा परिपक्व भएका हुँदैनन्। भ्रूणले साना चालहरू गर्न थाल्छ।"
+],
+9: [
+  "The embryo is now called a fetus. The head is relatively large, and the face, limbs and internal organs continue developing.",
+  "अब भ्रूणलाई फेटस भनिन्छ। टाउको शरीरको तुलनामा ठूलो हुन्छ र अनुहार, हातखुट्टा तथा भित्री अंगहरूको विकास जारी रहन्छ।"
+],
+10: [
+  "The fingers and toes become more distinct. The major organs have formed their basic structures and continue maturing. The fetus may move, although the mother cannot feel it yet.",
+  "हात र खुट्टाका औँलाहरू अझ स्पष्ट हुन्छन्। प्रमुख अंगहरूको आधारभूत संरचना बनिसकेको हुन्छ र परिपक्व हुँदै जान्छ। फेटस चल्न सक्छ तर आमाले अझै चाल महसुस गर्न सक्नुहुन्न।"
+],
+  11: [
+  "The fetus has a more recognisable human appearance. The head is still large relative to the body. Bones begin to harden, and external genital structures are developing.",
+  "फेटसको स्वरूप मानिसजस्तै देखिन थालेको हुन्छ। शरीरको तुलनामा टाउको अझै ठूलो हुन्छ। हड्डीहरू कडा हुन थाल्छन् र बाह्य जननेन्द्रियको विकास भइरहेको हुन्छ।"
+],
+12: [
+  "The fetus is becoming more active. Fingers and toes are distinct, nails are beginning to develop, and the kidneys are producing urine.",
+  "फेटस अझ सक्रिय हुँदै जान्छ। हातखुट्टाका औँलाहरू स्पष्ट हुन्छन्, नङ बन्न थाल्छन् र मिर्गौलाले पिसाब बनाउन थाल्छ।"
+],
+13: [
+  "The first trimester is ending. The intestines are moving into the abdomen, and the bones continue to develop. The fetus can make small movements.",
+  "पहिलो त्रैमासिक समाप्त हुँदैछ। आन्द्राहरू पेटभित्र सर्दैछन् र हड्डीहरूको विकास जारी छ। फेटसले साना चालहरू गर्न सक्छ।"
+],
+14: [
+  "The neck becomes more defined, and facial features continue developing. The fetus may make sucking and swallowing movements.",
+  "घाँटी अझ स्पष्ट हुँदै जान्छ र अनुहारका विशेषताहरू विकास भइरहेका हुन्छन्। फेटसले चुस्ने र निल्ने चालहरू गर्न सक्छ।"
+],
+15: [
+  "The skeleton is developing further. The fetus can move its arms and legs, and the ears are moving towards their final position on the head.",
+  "कंकालको विकास जारी रहन्छ। फेटसले हातखुट्टा चलाउन सक्छ र कान टाउकोको अन्तिम स्थानतर्फ सर्दैछन्।"
+],
+  16: [
+  "The fetus is growing rapidly. The eyes are facing forward, facial muscles are developing, and the legs are becoming longer. Some mothers may begin feeling movements.",
+  "फेटसको तीव्र वृद्धि भइरहेको हुन्छ। आँखा अगाडितर्फ फर्किएका हुन्छन्, अनुहारका मांसपेशीहरू विकास हुँदैछन् र खुट्टाहरू लामो हुँदैछन्। केही आमाले चाल महसुस गर्न थाल्न सक्छन्।"
+],
+17: [
+  "Fat begins accumulating under the fetal skin. The skeleton continues changing from cartilage into bone, and the umbilical cord becomes stronger.",
+  "फेटसको छालामुनि बोसो जम्मा हुन थाल्छ। कंकालको कार्टिलेज हड्डीमा परिवर्तन हुँदै जान्छ र सालनाल अझ बलियो हुँदै जान्छ।"
+],
+18: [
+  "The ears are becoming more prominent, and the nervous system continues developing. The fetus moves its arms and legs. Some mothers may feel these movements.",
+  "कान अझ स्पष्ट हुँदैछन् र स्नायु प्रणालीको विकास जारी छ। फेटसले हातखुट्टा चलाउँछ। केही आमाले यी चालहरू महसुस गर्न सक्छन्।"
+],
+19: [
+  "A protective coating called vernix caseosa begins covering the skin. Sensory development continues, and the fetal brain is developing specialised areas.",
+  "भर्निक्स केसिओसा भनिने सुरक्षात्मक तहले छाला ढाक्न थाल्छ। इन्द्रियहरूको विकास जारी रहन्छ र मस्तिष्कका विभिन्न विशेष भागहरू विकास हुँदैछन्।"
+],
+20: [
+  "The pregnancy is around halfway through. The fetus has more coordinated movements, and the anatomy scan around this time can assess fetal organs and structures.",
+  "गर्भावस्था करिब आधा पुगेको हुन्छ। फेटसका चालहरू अझ समन्वित हुँदै जान्छन्। यस समयतिर गरिने एनाटोमी स्क्यानबाट भ्रूणका अंग तथा संरचनाहरूको मूल्याङ्कन गर्न सकिन्छ।"
+],
+  21: [
+  "The fetus continues gaining weight. The digestive system is developing, and the fetus swallows small amounts of amniotic fluid. Movements may become more noticeable.",
+  "फेटसको तौल बढ्दै जान्छ। पाचन प्रणालीको विकास जारी रहन्छ र फेटसले थोरै मात्रामा एम्नियोटिक तरल निल्छ। चालहरू अझ स्पष्ट महसुस हुन सक्छन्।"
+],
+22: [
+  "The facial features are becoming more defined. Eyebrows and eyelids are developing, and the lungs continue their early development.",
+  "अनुहारका विशेषताहरू अझ स्पष्ट हुँदैछन्। आँखीभौँ र परेला विकास भइरहेका छन् र फोक्सोको प्रारम्भिक विकास जारी छ।"
+],
+23: [
+  "The lungs are developing further, although they are still immature. The fetus responds to sounds, and the skin appears thin and wrinkled.",
+  "फोक्सोको विकास जारी छ तर अझै पूर्ण परिपक्व भएको छैन। फेटसले आवाजप्रति प्रतिक्रिया दिन सक्छ र छाला पातलो तथा चाउरी परेको देखिन्छ।"
+],
+24: [
+  "The lungs are developing air sacs, and cells involved in producing surfactant are developing. The brain and nervous system continue maturing.",
+  "फोक्सोमा हावाका साना थैलीहरू विकास हुँदैछन् र सर्फ्याक्टेन्ट बनाउने कोषहरूको विकास भइरहेको हुन्छ। मस्तिष्क र स्नायु प्रणाली परिपक्व हुँदैछन्।"
+],
+25: [
+  "The fetus continues gaining weight. The nervous system is developing, and the fetus may respond to familiar sounds and touch.",
+  "फेटसको तौल बढ्दै जान्छ। स्नायु प्रणालीको विकास जारी रहन्छ र फेटसले परिचित आवाज तथा स्पर्शप्रति प्रतिक्रिया दिन सक्छ।"
+],
+  26: [
+  "The eyes are beginning to open. The brain is developing rapidly, and the lungs continue maturing. The fetus responds to sounds and touch.",
+  "आँखा खुल्न थाल्छन्। मस्तिष्कको तीव्र विकास भइरहेको हुन्छ र फोक्सो परिपक्व हुँदैछन्। फेटसले आवाज र स्पर्शप्रति प्रतिक्रिया दिन्छ।"
+],
+27: [
+  "The fetus is approaching the third trimester. Brain activity is becoming more complex, and the lungs continue developing. Sleep and activity patterns are becoming more organised.",
+  "फेटस तेस्रो त्रैमासिकतर्फ अघि बढ्दैछ। मस्तिष्कको गतिविधि अझ जटिल हुँदैछ र फोक्सोको विकास जारी छ। निद्रा र सक्रियताको ढाँचा व्यवस्थित हुँदै जान्छ।"
+],
+28: [
+  "The eyelids can open and close. The brain continues rapid development, and the fetus is gaining body fat. The lungs are still immature.",
+  "परेला खुल्न र बन्द हुन सक्छन्। मस्तिष्कको तीव्र विकास जारी छ र फेटसको शरीरमा बोसो जम्मा हुँदैछ। फोक्सो अझै पूर्ण परिपक्व भएका छैनन्।"
+],
+29: [
+  "The muscles and bones are becoming stronger. The brain is developing further, and the fetus continues gaining weight. Movements may feel stronger.",
+  "मांसपेशी र हड्डीहरू बलिया हुँदैछन्। मस्तिष्कको विकास जारी छ र फेटसको तौल बढ्दैछ। चालहरू अझ बलियो महसुस हुन सक्छन्।"
+],
+30: [
+  "The brain is developing rapidly, and the lungs continue maturing. The fetus gains fat under the skin, making the body appear fuller.",
+  "मस्तिष्कको तीव्र विकास भइरहेको छ र फोक्सो परिपक्व हुँदैछन्। छालामुनि बोसो जम्मा हुँदै जाँदा शरीर अझ भरिलो देखिन्छ।"
+],
+ 31: [
+  "The brain is growing rapidly, and the nervous system is becoming more mature. The fetus continues gaining weight and practising breathing movements.",
+  "मस्तिष्कको तीव्र वृद्धि भइरहेको छ र स्नायु प्रणाली अझ परिपक्व हुँदैछ। फेटसको तौल बढ्दैछ र सास फेर्ने अभ्यासजस्ता चालहरू गरिरहेको हुन्छ।"
+],
+32: [
+  "The bones are fully formed but remain soft and flexible. The lungs continue maturing, and the fetus is gaining more body fat.",
+  "हड्डीहरू बनिसकेका हुन्छन् तर अझै नरम र लचिला हुन्छन्। फोक्सो परिपक्व हुँदैछन् र शरीरमा बोसो बढ्दैछ।"
+],
+33: [
+  "The immune system continues developing. The brain and nervous system are maturing, and the fetus continues storing fat to help regulate body temperature after birth.",
+  "प्रतिरक्षा प्रणालीको विकास जारी छ। मस्तिष्क र स्नायु प्रणाली परिपक्व हुँदैछन्। जन्मपछि शरीरको तापक्रम नियन्त्रण गर्न सहयोग गर्ने बोसो जम्मा हुँदैछ।"
+],
+34: [
+  "The lungs are continuing to mature, and the fetus is gaining weight. The central nervous system is developing further, and the skin is becoming smoother.",
+  "फोक्सो परिपक्व हुँदैछन् र फेटसको तौल बढ्दैछ। केन्द्रीय स्नायु प्रणालीको विकास जारी छ र छाला अझ चिल्लो हुँदैछ।"
+],
+35: [
+  "The kidneys are developed, and the liver can process some waste products. The fetus continues gaining fat, and many babies are moving towards a head-down position.",
+  "मिर्गौला विकसित भइसकेका हुन्छन् र कलेजोले केही फोहोर पदार्थ प्रशोधन गर्न सक्छ। फेटसको बोसो बढ्दैछ र धेरै शिशु टाउको तल हुने अवस्थातर्फ सर्दैछन्।"
+],
+  36: [
+  "The fetus is gaining weight and building fat stores. The lungs and brain continue maturing. Many babies settle into a head-down position.",
+  "फेटसको तौल बढ्दैछ र शरीरमा बोसो जम्मा हुँदैछ। फोक्सो र मस्तिष्क परिपक्व हुँदैछन्। धेरै शिशु टाउको तल हुने अवस्थामा बस्छन्।"
+],
+37: [
+  "The baby is considered early term. The brain and lungs continue developing, and the baby keeps practising sucking, swallowing and breathing movements.",
+  "शिशुलाई अर्ली टर्म मानिन्छ। मस्तिष्क र फोक्सोको विकास जारी रहन्छ। शिशुले चुस्ने, निल्ने र सास फेर्ने अभ्यासजस्ता चालहरू गरिरहेको हुन्छ।"
+],
+38: [
+  "The baby continues gaining weight and developing fat stores. The brain and nervous system are still maturing, and the baby is preparing for life outside the uterus.",
+  "शिशुको तौल बढ्दैछ र शरीरमा बोसो जम्मा हुँदैछ। मस्तिष्क र स्नायु प्रणाली अझै परिपक्व हुँदैछन्। शिशु पाठेघरबाहिरको जीवनका लागि तयार हुँदैछ।"
+],
+39: [
+  "The baby is full term. The lungs and brain continue maturing, and the baby is usually well developed for birth.",
+  "शिशु फुल टर्म अवस्थामा पुगेको हुन्छ। फोक्सो र मस्तिष्कको विकास जारी रहन्छ र शिशु सामान्यतया जन्मका लागि पर्याप्त विकसित भएको हुन्छ।"
+],
+40: [
+  "This is the estimated due-date week. The baby is fully developed but continues preparing for birth. Labour may begin naturally around this time.",
+  "यो सम्भावित प्रसव मिति पर्ने हप्ता हो। शिशु विकसित भइसकेको हुन्छ तर जन्मका लागि थप तयारी भइरहेको हुन्छ। यस समयतिर प्राकृतिक रूपमा प्रसव सुरु हुन सक्छ।"
+]
 };
 const motherWeeks = {
   1: [
