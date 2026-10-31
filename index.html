@@ -506,7 +506,12 @@ function changeLanguage() {
   document.getElementById("languageButton").textContent =
     isNepali ? "English" : "नेपाली";
 
-}
+const selectedWeek = document.getElementById("weekSelect").value;
+document.getElementById("weekSelect").innerHTML =
+  '<option value="">Choose week (1–40)</option>';
+populateWeeks();
+document.getElementById("weekSelect").value = selectedWeek;
+if (selectedWeek) showWeek();}
 
 function const pregnancyWeeks = {
 1: ["Pregnancy is dated from the first day of your last menstrual period. Conception has not usually occurred yet.", "गर्भावस्थाको गणना अन्तिम महिनावारी सुरु भएको पहिलो दिनबाट गरिन्छ। यस समयमा सामान्यतया गर्भाधान भएको हुँदैन।"],
