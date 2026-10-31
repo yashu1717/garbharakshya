@@ -508,7 +508,92 @@ function changeLanguage() {
 
 }
 
+function const pregnancyWeeks = {
+1: ["Pregnancy is dated from the first day of your last menstrual period. Conception has not usually occurred yet.", "गर्भावस्थाको गणना अन्तिम महिनावारी सुरु भएको पहिलो दिनबाट गरिन्छ। यस समयमा सामान्यतया गर्भाधान भएको हुँदैन।"],
+2: ["Ovulation usually occurs around this time in a typical 28-day cycle.", "सामान्य २८ दिनको महिनावारी चक्रमा यस समयमा डिम्ब निष्कासन हुन सक्छ।"],
+3: ["Fertilization may occur and the early embryo begins dividing.", "यस समयमा निषेचन हुन सक्छ र भ्रूणका कोषहरू विभाजन हुन थाल्छन्।"],
+4: ["The embryo may implant in the uterus. Early pregnancy hormone hCG starts rising.", "भ्रूण पाठेघरमा टाँसिन सक्छ र hCG हर्मोन बढ्न थाल्छ।"],
+5: ["The early brain, spinal cord and heart structures begin developing.", "मस्तिष्क, मेरुदण्ड र मुटुको प्रारम्भिक संरचना बन्न थाल्छ।"],
+6: ["Early heart activity may be visible on ultrasound in some pregnancies.", "केही गर्भावस्थामा अल्ट्रासाउन्डमा मुटुको प्रारम्भिक गतिविधि देखिन सक्छ।"],
+7: ["The brain and facial structures continue developing.", "मस्तिष्क र अनुहारका संरचनाहरू विकास हुँदैछन्।"],
+8: ["The arms and legs are developing and the embryo is growing rapidly.", "हातखुट्टा विकास हुँदैछन् र भ्रूण छिटो बढिरहेको छ।"],
+9: ["The embryo is now called a fetus. Major organs continue developing.", "अब भ्रूणलाई फेटस भनिन्छ। मुख्य अंगहरूको विकास जारी रहन्छ।"],
+10: ["Fingers and toes are becoming more distinct.", "हातका औँला र खुट्टाका औँलाहरू स्पष्ट हुँदैछन्।"],
+11: ["The head is large compared with the body. Facial features are developing.", "शरीरको तुलनामा टाउको ठूलो हुन्छ। अनुहारका अंगहरू विकास हुँदैछन्।"],
+12: ["The fetus is moving, although the mother usually cannot feel these movements yet.", "शिशु चलिरहेको हुन्छ तर आमाले सामान्यतया चाल महसुस गर्न सक्नुहुन्न।"],
+13: ["The first trimester is ending. Growth and organ development continue.", "पहिलो त्रैमासिक समाप्त हुँदैछ। शिशुको वृद्धि जारी छ।"],
+14: ["The second trimester begins. The baby's body continues growing.", "दोस्रो त्रैमासिक सुरु हुन्छ। शिशुको शरीर बढ्दै जान्छ।"],
+15: ["The baby's bones are developing and becoming stronger.", "शिशुका हड्डीहरू विकास हुँदैछन् र बलियो बन्दैछन्।"],
+16: ["The baby's movements are becoming more coordinated.", "शिशुको चाल अझ समन्वित हुँदैछ।"],
+17: ["Fat is beginning to develop under the baby's skin.", "शिशुको छालामुनि बोसो जम्मा हुन थाल्छ।"],
+18: ["The baby's ears and nervous system continue developing.", "शिशुको कान र स्नायु प्रणाली विकास हुँदैछन्।"],
+19: ["A protective coating called vernix begins covering the skin.", "शिशुको छालामा भर्निक्स नामको सुरक्षात्मक तह बन्न थाल्छ।"],
+20: ["You are around halfway through pregnancy. The anatomy scan is usually performed around this period.", "गर्भावस्थाको लगभग आधा समय पूरा भएको छ। यस समयमा सामान्यतया एनाटोमी स्क्यान गरिन्छ।"],
+21: ["The baby's digestive system is developing and movements may become more noticeable.", "शिशुको पाचन प्रणाली विकास हुँदैछ र चाल अझ महसुस हुन सक्छ।"],
+22: ["The baby's lungs continue developing.", "शिशुको फोक्सो विकास हुँदैछ।"],
+23: ["The baby's hearing is developing and sounds may be detected.", "शिशुको सुन्ने क्षमता विकास हुँदैछ।"],
+24: ["The lungs are developing, but the baby would still need intensive care if born now.", "फोक्सो विकास हुँदैछ, तर अहिले जन्मिएमा शिशुलाई विशेष उपचार आवश्यक पर्न सक्छ।"],
+25: ["The baby's skin is becoming less transparent.", "शिशुको छाला पहिलेभन्दा बाक्लो हुँदैछ।"],
+26: ["The baby's eyes are developing and may begin to open.", "शिशुका आँखाहरू विकास हुँदैछन् र खुल्न थाल्न सक्छन्।"],
+27: ["The third trimester is approaching. Brain development continues rapidly.", "तेस्रो त्रैमासिक नजिकिँदैछ। मस्तिष्कको विकास तीव्र गतिमा जारी छ।"],
+28: ["The third trimester begins. Regular attention to fetal movements is important.", "तेस्रो त्रैमासिक सुरु हुन्छ। शिशुको चालमा ध्यान दिनु महत्त्वपूर्ण हुन्छ।"],
+29: ["The baby's muscles and bones continue developing.", "शिशुका मांसपेशी र हड्डी विकास हुँदैछन्।"],
+30: ["The baby's brain is growing rapidly and body fat is increasing.", "शिशुको मस्तिष्क तीव्र रूपमा बढ्दैछ र शरीरमा बोसो बढ्दैछ।"],
+31: ["The baby's nervous system continues maturing.", "शिशुको स्नायु प्रणाली परिपक्व हुँदैछ।"],
+32: ["The baby's bones are developed, although the skull remains soft and flexible.", "शिशुका हड्डीहरू विकसित भएका छन् तर टाउकोको हड्डी नरम र लचिलो रहन्छ।"],
+33: ["The baby's immune system continues developing.", "शिशुको रोग प्रतिरोधात्मक क्षमता विकास हुँदैछ।"],
+34: ["The baby's lungs are maturing further.", "शिशुको फोक्सो अझ परिपक्व हुँदैछ।"],
+35: ["The baby's brain and nervous system continue maturing.", "शिशुको मस्तिष्क र स्नायु प्रणाली अझ परिपक्व हुँदैछन्।"],
+36: ["The baby is approaching full term. The position of the baby is important to assess.", "शिशु पूर्ण अवधिको नजिक पुग्दैछ। शिशुको अवस्था जाँच गर्नु महत्त्वपूर्ण हुन्छ।"],
+37: ["The pregnancy is now early term. Birth may happen at any time.", "अब गर्भावस्था प्रारम्भिक पूर्ण अवधि (Early term) मा पुगेको छ। जुनसुकै समयमा प्रसव हुन सक्छ।"],
+38: ["The baby continues gaining weight and preparing for birth.", "शिशुको तौल बढ्दैछ र जन्मका लागि तयारी हुँदैछ।"],
+39: ["The baby is full term and continues growing.", "शिशु पूर्ण अवधिमा पुगेको छ र अझै बढिरहेको छ।"],
+40: ["This is the estimated due-date week. Only a small proportion of babies are born exactly on their due date.", "यो सम्भावित प्रसव मिति पर्ने हप्ता हो। थोरै शिशु मात्र ठ्याक्कै यही मितिमा जन्मिन्छन्।"]
+};
+
+function populateWeeks() {
+  const select = document.getElementById("weekSelect");
+
+  for (let i = 1; i <= 40; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = (isNepali ? "हप्ता " : "Week ") + i;
+    select.appendChild(option);
+  }
+}
+
 function showWeek() {
+
+  const week = Number(document.getElementById("weekSelect").value);
+
+  if (!week) return;
+
+  const trimester = week <= 13 ? 1 : week <= 27 ? 2 : 3;
+
+  const data = pregnancyWeeks[week];
+
+  document.getElementById("weekHeading").textContent =
+    (isNepali ? "गर्भावस्थाको " : "Pregnancy Week ") + week;
+
+  document.getElementById("trimester").textContent =
+    (isNepali ? "त्रैमासिक " : "Trimester ") + trimester;
+
+  document.getElementById("babyInfo").textContent =
+    isNepali ? data[1] : data[0];
+
+  document.getElementById("motherInfo").textContent =
+    isNepali
+    ? "यस समयमा थकान, वाकवाकी, भोकमा परिवर्तन वा अन्य लक्षण हुन सक्छन्। सबै आमाको अनुभव फरक हुन्छ।"
+    : "You may experience fatigue, nausea, appetite changes or other symptoms. Every pregnancy is different.";
+
+  document.getElementById("doctorInfo").textContent =
+    isNepali
+    ? "नियमित गर्भ जाँच गर्नुहोस्। रक्तस्राव, पानी बग्ने, तीव्र पेट दुख्ने वा अन्य चिन्ताजनक लक्षण भए तुरुन्त स्वास्थ्य संस्थामा जानुहोस्।"
+    : "Attend regular antenatal checkups. Seek urgent medical care for bleeding, leaking fluid, severe abdominal pain or other concerning symptoms.";
+
+}
+
+populateWeeks(); {
 
   const week = Number(document.getElementById("weekInput").value);
 
