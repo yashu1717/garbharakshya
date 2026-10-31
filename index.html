@@ -302,6 +302,56 @@ footer {
 
 <section class="section" id="weeks">
 
+<h2 data-en="Explore Your Pregnancy Week by Week"
+    data-np="हप्तैपिच्छे आफ्नो गर्भावस्था बुझ्नुहोस्">
+Explore Your Pregnancy Week by Week
+</h2>
+
+<p class="section-intro"
+   data-en="Your baby's journey, one week at a time."
+   data-np="तपाईंको शिशुको विकास, हरेक हप्ताको जानकारी।">
+Your baby's journey, one week at a time.
+</p>
+
+<div class="week-box">
+
+<h3 data-en="Select Your Pregnancy Week"
+    data-np="गर्भावस्थाको हप्ता छान्नुहोस्">
+Select Your Pregnancy Week
+</h3>
+
+<select id="weekSelect" onchange="showWeek()"
+style="width:100%;padding:14px;margin:20px 0;border:1px solid #cbd9d1;border-radius:8px;font-size:16px;">
+
+<option value="">Choose week (1–40)</option>
+
+</select>
+
+<div id="weekHeading"></div>
+
+<div id="trimester"></div>
+
+<div class="cards" style="text-align:left;">
+
+<div class="card">
+<h3>👶 <span data-en="Baby's Development" data-np="शिशुको विकास">Baby's Development</span></h3>
+<p id="babyInfo"></p>
+</div>
+
+<div class="card">
+<h3>🤰 <span data-en="Mother's Changes" data-np="आमाको परिवर्तन">Mother's Changes</span></h3>
+<p id="motherInfo"></p>
+</div>
+
+<div class="card">
+<h3>🩺 <span data-en="Doctor's Guidance" data-np="चिकित्सकको सुझाव">Doctor's Guidance</span></h3>
+<p id="doctorInfo"></p>
+</div>
+
+</div>
+</div>
+</section>
+
   <h2 data-en="Your Pregnancy Journey"
       data-np="तपाईंको गर्भावस्थाको यात्रा">
     Your Pregnancy Journey
