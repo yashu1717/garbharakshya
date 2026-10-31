@@ -1,251 +1,161 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Garbharakhsya | Pregnancy Care by Dr. Yashu</title>
+<title>Garbharakhsya | Dr. Yashu</title>
 
 <style>
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   font-family: Arial, sans-serif;
   background: #fffaf5;
-  color: #293b37;
+  color: #304b42;
 }
 
 header {
   background: white;
-  padding: 18px 7%;
+  padding: 20px 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 12px #0000000d;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 15px;
+  box-shadow: 0 2px 10px #0001;
 }
 
 .logo {
-  color: #287c68;
   font-size: 25px;
   font-weight: bold;
+  color: #287c68;
 }
 
 .logo small {
   display: block;
-  color: #777;
   font-size: 12px;
+  color: #777;
   font-weight: normal;
-  margin-top: 4px;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #354b43;
-  font-size: 14px;
-}
-
-#languageButton {
-  background: #287c68;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 20px;
+button, select {
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: 1px solid #b9d2c5;
+  font-size: 15px;
   cursor: pointer;
 }
 
+button {
+  background: #287c68;
+  color: white;
+  border: none;
+}
+
 .hero {
-  padding: 75px 8%;
-  background: linear-gradient(120deg, #e3f3eb, #fff0e7);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 35px;
-  flex-wrap: wrap;
-}
-
-.hero-content {
-  max-width: 580px;
-}
-
-.tag {
-  color: #287c68;
-  font-weight: bold;
-  margin-bottom: 18px;
+  background: linear-gradient(120deg,#e2f3e9,#fff0e6);
+  padding: 70px 8%;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(34px, 5vw, 55px);
-  line-height: 1.2;
-  margin-bottom: 20px;
+  font-size: 40px;
   color: #235b4c;
+  margin-bottom: 20px;
 }
 
 .hero p {
   font-size: 17px;
-  line-height: 1.7;
-  color: #53645d;
-  margin-bottom: 25px;
-}
-
-.main-button {
-  background: #287c68;
-  color: white;
-  border: none;
-  padding: 15px 25px;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.hero-visual {
-  font-size: 120px;
-  background: #ffffffa8;
-  width: 230px;
-  height: 230px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+  line-height: 1.8;
+  max-width: 650px;
+  margin: auto auto 25px;
 }
 
 .section {
-  padding: 65px 8%;
+  padding: 55px 8%;
   text-align: center;
 }
 
 .section h2 {
   color: #235b4c;
-  font-size: 30px;
-  margin-bottom: 12px;
-}
-
-.section-intro {
-  color: #68766f;
-  margin-bottom: 30px;
-  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
 .week-box {
   background: white;
-  max-width: 650px;
+  max-width: 700px;
   margin: 30px auto;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 5px 25px #0000000c;
+  box-shadow: 0 5px 25px #0001;
 }
 
-.week-box input {
-  padding: 13px;
+#weekSelect {
   width: 100%;
-  margin: 15px 0;
-  border: 1px solid #cbd9d1;
-  border-radius: 8px;
-  font-size: 16px;
+  margin: 20px 0;
+  background: white;
 }
 
-.week-box button {
-  background: #287c68;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-#weekResult {
-  margin-top: 18px;
-  color: #287c68;
+#weekHeading {
+  font-size: 24px;
   font-weight: bold;
-  line-height: 1.6;
+  color: #287c68;
+  margin: 20px 0 10px;
+}
+
+#trimester {
+  margin-bottom: 20px;
+  color: #9b704d;
+  font-weight: bold;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
-  margin-top: 35px;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 18px;
+  margin-top: 25px;
 }
 
 .card {
   background: white;
-  padding: 30px 20px;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px #0000000b;
-  text-align: center;
-}
-
-.card .emoji {
-  font-size: 38px;
-  margin-bottom: 15px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px #0001;
+  text-align: left;
 }
 
 .card h3 {
   color: #287c68;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .card p {
-  color: #68766f;
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 14px;
 }
 
 .doctor {
-  background: #e9f3ed;
-  padding: 50px 8%;
+  background: #e7f2eb;
   text-align: center;
-}
-
-.doctor h2 {
-  color: #235b4c;
-  margin-bottom: 15px;
-}
-
-.doctor p {
-  max-width: 650px;
-  margin: auto;
+  padding: 45px 8%;
   line-height: 1.8;
-  color: #52665d;
 }
 
 footer {
   background: #235b4c;
   color: white;
+  padding: 25px;
   text-align: center;
-  padding: 30px 15px;
-  line-height: 1.8;
 }
 
-@media(max-width: 600px) {
-  header {
-    padding: 15px 5%;
-  }
-
-  nav {
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-
-  .hero {
-    padding: 50px 7%;
-    text-align: center;
+@media(max-width:600px) {
+  .hero h1 {
+    font-size: 30px;
   }
 }
 </style>
@@ -259,108 +169,33 @@ footer {
     <small>by Dr. Yashu</small>
   </div>
 
-  <nav>
-    <a href="#home" data-en="Home" data-np="गृहपृष्ठ">Home</a>
-    <a href="#weeks" data-en="Pregnancy Weeks" data-np="गर्भावस्थाका हप्ताहरू">Pregnancy Weeks</a>
-    <a href="#learn" data-en="Learn" data-np="जानकारी">Learn</a>
-    <button id="languageButton" onclick="changeLanguage()">नेपाली</button>
-  </nav>
+  <button id="languageButton" onclick="changeLanguage()">
+    नेपाली
+  </button>
 </header>
 
-<section class="hero" id="home">
+<section class="hero">
+  <h1 data-en="Your Pregnancy, Guided with Care"
+      data-np="तपाईंको गर्भावस्था, सही हेरचाहका साथ">
+    Your Pregnancy, Guided with Care
+  </h1>
 
-  <div class="hero-content">
-
-    <div class="tag"
-      data-en="YOUR PREGNANCY COMPANION"
-      data-np="तपाईंको गर्भावस्थाको साथी">
-      YOUR PREGNANCY COMPANION
-    </div>
-
-    <h1 data-en="Every pregnancy deserves informed care."
-        data-np="हरेक गर्भावस्थामा सही जानकारी र उचित हेरचाह आवश्यक छ।">
-      Every pregnancy deserves informed care.
-    </h1>
-
-    <p data-en="Understand your baby's growth, your body's changes and how to have a healthier pregnancy — guided by a doctor."
-       data-np="आफ्नो शिशुको विकास, शरीरमा आउने परिवर्तन र स्वस्थ गर्भावस्थाका लागि आवश्यक जानकारी चिकित्सकको मार्गदर्शनमा प्राप्त गर्नुहोस्।">
-      Understand your baby's growth, your body's changes and how to have a healthier pregnancy — guided by a doctor.
-    </p>
-
-    <button class="main-button"
-      onclick="document.getElementById('weeks').scrollIntoView({behavior:'smooth'})"
-      data-en="Explore Your Pregnancy →"
-      data-np="आफ्नो गर्भावस्था बुझ्नुहोस् →">
-      Explore Your Pregnancy →
-    </button>
-
-  </div>
-
-  <div class="hero-visual">🤰</div>
-
+  <p data-en="Understand your baby's development, your body changes and how to have a healthy pregnancy with doctor-guided information."
+     data-np="आफ्नो शिशुको विकास, शरीरमा आउने परिवर्तन र स्वस्थ गर्भावस्थाका लागि चिकित्सकको मार्गदर्शनमा जानकारी प्राप्त गर्नुहोस्।">
+    Understand your baby's development, your body changes and how to have a healthy pregnancy with doctor-guided information.
+  </p>
 </section>
 
-<section class="section" id="weeks">
+<section class="section">
 
-<h2 data-en="Explore Your Pregnancy Week by Week"
-    data-np="हप्तैपिच्छे आफ्नो गर्भावस्था बुझ्नुहोस्">
-Explore Your Pregnancy Week by Week
-</h2>
-
-<p class="section-intro"
-   data-en="Your baby's journey, one week at a time."
-   data-np="तपाईंको शिशुको विकास, हरेक हप्ताको जानकारी।">
-Your baby's journey, one week at a time.
-</p>
-
-<div class="week-box">
-
-<h3 data-en="Select Your Pregnancy Week"
-    data-np="गर्भावस्थाको हप्ता छान्नुहोस्">
-Select Your Pregnancy Week
-</h3>
-
-<select id="weekSelect" onchange="showWeek()"
-style="width:100%;padding:14px;margin:20px 0;border:1px solid #cbd9d1;border-radius:8px;font-size:16px;">
-
-<option value="">Choose week (1–40)</option>
-
-</select>
-
-<div id="weekHeading"></div>
-
-<div id="trimester"></div>
-
-<div class="cards" style="text-align:left;">
-
-<div class="card">
-<h3>👶 <span data-en="Baby's Development" data-np="शिशुको विकास">Baby's Development</span></h3>
-<p id="babyInfo"></p>
-</div>
-
-<div class="card">
-<h3>🤰 <span data-en="Mother's Changes" data-np="आमाको परिवर्तन">Mother's Changes</span></h3>
-<p id="motherInfo"></p>
-</div>
-
-<div class="card">
-<h3>🩺 <span data-en="Doctor's Guidance" data-np="चिकित्सकको सुझाव">Doctor's Guidance</span></h3>
-<p id="doctorInfo"></p>
-</div>
-
-</div>
-</div>
-</section>
-
-  <h2 data-en="Your Pregnancy Journey"
-      data-np="तपाईंको गर्भावस्थाको यात्रा">
-    Your Pregnancy Journey
+  <h2 data-en="Explore Your Pregnancy Week by Week"
+      data-np="हप्तैपिच्छे आफ्नो गर्भावस्था बुझ्नुहोस्">
+    Explore Your Pregnancy Week by Week
   </h2>
 
-  <p class="section-intro"
-     data-en="Choose your pregnancy week to explore what's happening."
-     data-np="आफ्नो गर्भावस्थाको हप्ता छानेर के भइरहेको छ थाहा पाउनुहोस्।">
-    Choose your pregnancy week to explore what's happening.
+  <p data-en="Select your current pregnancy week."
+     data-np="आफ्नो गर्भावस्थाको हालको हप्ता छान्नुहोस्।">
+    Select your current pregnancy week.
   </p>
 
   <div class="week-box">
@@ -370,126 +205,139 @@ style="width:100%;padding:14px;margin:20px 0;border:1px solid #cbd9d1;border-rad
       How many weeks pregnant are you?
     </h3>
 
-    <input type="number" id="weekInput"
-      min="1" max="40" placeholder="Enter week (1–40)">
+    <select id="weekSelect" onchange="showWeek()">
+      <option value="">Choose a week</option>
+    </select>
 
-    <button onclick="showWeek()"
-      data-en="Explore"
-      data-np="हेर्नुहोस्">
-      Explore
-    </button>
+    <div id="weekHeading"></div>
+    <div id="trimester"></div>
 
-    <div id="weekResult"></div>
+    <div class="cards">
 
+      <div class="card">
+        <h3 data-en="👶 Baby's Development"
+            data-np="👶 शिशुको विकास">
+          👶 Baby's Development
+        </h3>
+        <p id="babyInfo">Select a week to begin.</p>
+      </div>
+
+      <div class="card">
+        <h3 data-en="🤰 Mother's Changes"
+            data-np="🤰 आमाको परिवर्तन">
+          🤰 Mother's Changes
+        </h3>
+        <p id="motherInfo">Select a week to begin.</p>
+      </div>
+
+      <div class="card">
+        <h3 data-en="🩺 Doctor's Advice"
+            data-np="🩺 चिकित्सकको सुझाव">
+          🩺 Doctor's Advice
+        </h3>
+        <p id="doctorInfo">Select a week to begin.</p>
+      </div>
+
+    </div>
   </div>
-
-</section>
-
-<section class="section" id="learn">
-
-  <h2 data-en="Explore Pregnancy Care"
-      data-np="गर्भावस्थासम्बन्धी जानकारी">
-    Explore Pregnancy Care
-  </h2>
-
-  <p class="section-intro"
-     data-en="Everything you need to know during your pregnancy."
-     data-np="गर्भावस्थामा तपाईंले जान्नुपर्ने महत्वपूर्ण कुराहरू।">
-    Everything you need to know during your pregnancy.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="emoji">👶</div>
-      <h3 data-en="Baby's Development"
-          data-np="शिशुको विकास">Baby's Development</h3>
-      <p data-en="Discover how your baby grows inside the womb."
-         data-np="गर्भभित्र तपाईंको शिशु कसरी बढ्दैछ जान्नुहोस्।">
-        Discover how your baby grows inside the womb.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🤰</div>
-      <h3 data-en="Mother's Health"
-          data-np="आमाको स्वास्थ्य">Mother's Health</h3>
-      <p data-en="Understand body changes and pregnancy symptoms."
-         data-np="शरीरमा आउने परिवर्तन र गर्भावस्थाका लक्षण बुझ्नुहोस्।">
-        Understand body changes and pregnancy symptoms.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🥗</div>
-      <h3 data-en="Nutrition"
-          data-np="पोषण">Nutrition</h3>
-      <p data-en="Learn about healthy food and nutrition during pregnancy."
-         data-np="गर्भावस्थामा स्वस्थ खाना र पोषणबारे जान्नुहोस्।">
-        Learn about healthy food and nutrition during pregnancy.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">🏥</div>
-      <h3 data-en="Antenatal Care"
-          data-np="गर्भ जाँच">Antenatal Care</h3>
-      <p data-en="Know your checkups, tests and ultrasound schedule."
-         data-np="नियमित गर्भ जाँच, परीक्षण र अल्ट्रासाउन्डबारे जान्नुहोस्।">
-        Know your checkups, tests and ultrasound schedule.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">⚠️</div>
-      <h3 data-en="Warning Signs"
-          data-np="खतराका संकेतहरू">Warning Signs</h3>
-      <p data-en="Recognize symptoms that need immediate medical attention."
-         data-np="तुरुन्त स्वास्थ्य सेवा लिनुपर्ने खतराका संकेत चिन्नुहोस्।">
-        Recognize symptoms that need immediate medical attention.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="emoji">📅</div>
-      <h3 data-en="Due Date Calculator"
-          data-np="प्रसव मिति गणना">Due Date Calculator</h3>
-      <p data-en="Estimate your expected date of delivery."
-         data-np="तपाईंको सम्भावित प्रसव मिति थाहा पाउनुहोस्।">
-        Estimate your expected date of delivery.
-      </p>
-    </div>
-
-  </div>
-
 </section>
 
 <section class="doctor">
-
-  <h2 data-en="A Doctor-Guided Pregnancy Journey"
-      data-np="चिकित्सकको मार्गदर्शनमा गर्भावस्थाको यात्रा">
-    A Doctor-Guided Pregnancy Journey
-  </h2>
-
-  <p data-en="Garbharakhsya by Dr. Yashu aims to make reliable pregnancy information accessible to every mother, in both Nepali and English."
-     data-np="Dr. Yashu द्वारा सञ्चालित गर्भारक्षा हरेक आमासम्म नेपाली र अंग्रेजी दुवै भाषामा भरपर्दो गर्भावस्थासम्बन्धी जानकारी पुर्‍याउने उद्देश्यले तयार गरिएको हो।">
-    Garbharakhsya by Dr. Yashu aims to make reliable pregnancy information accessible to every mother, in both Nepali and English.
+  <h2>Garbharakhsya by Dr. Yashu</h2>
+  <p data-en="Reliable pregnancy education for every mother."
+     data-np="हरेक आमाका लागि भरपर्दो गर्भावस्थासम्बन्धी शिक्षा।">
+    Reliable pregnancy education for every mother.
   </p>
-
 </section>
 
 <footer>
-  <h3>Garbharakhsya by Dr. Yashu</h3>
-  <p data-en="Pregnancy education. Informed motherhood."
-     data-np="गर्भावस्थाको शिक्षा। सचेत मातृत्व।">
-    Pregnancy education. Informed motherhood.
-  </p>
-  <p>© 2026 Garbharakhsya</p>
+  Garbharakhsya © 2026
 </footer>
 
 <script>
 
 let isNepali = false;
+
+const pregnancyWeeks = {
+  1: ["Pregnancy is dated from the first day of the last menstrual period.", "गर्भावस्थाको गणना अन्तिम महिनावारी सुरु भएको पहिलो दिनबाट गरिन्छ।"],
+  2: ["Ovulation usually occurs around this time.", "यस समयमा सामान्यतया डिम्ब निष्कासन हुन्छ।"],
+  3: ["Fertilization may occur and the embryo begins developing.", "यस समयमा निषेचन हुन सक्छ र भ्रूण विकास हुन थाल्छ।"],
+  4: ["The embryo may implant in the uterus.", "भ्रूण पाठेघरमा टाँसिन सक्छ।"],
+  5: ["The early brain, spinal cord and heart structures develop.", "मस्तिष्क, मेरुदण्ड र मुटुको प्रारम्भिक संरचना विकास हुन्छ।"],
+  6: ["Early heart activity may be visible on ultrasound.", "अल्ट्रासाउन्डमा मुटुको प्रारम्भिक गतिविधि देखिन सक्छ।"],
+  7: ["The brain and facial structures develop.", "मस्तिष्क र अनुहारका अंगहरू विकास हुन्छन्।"],
+  8: ["The arms and legs are developing.", "हातखुट्टाको विकास हुँदैछ।"],
+  9: ["The embryo is now called a fetus.", "अब भ्रूणलाई फेटस भनिन्छ।"],
+  10: ["Fingers and toes become more distinct.", "हात र खुट्टाका औँलाहरू स्पष्ट हुँदैछन्।"],
+  11: ["Facial features continue developing.", "अनुहारका अंगहरूको विकास जारी छ।"],
+  12: ["The fetus moves, but the mother usually cannot feel it yet.", "शिशु चलिरहेको हुन्छ तर आमाले अझै चाल महसुस नगर्न सक्छिन्।"],
+  13: ["The first trimester is ending.", "पहिलो त्रैमासिक समाप्त हुँदैछ।"],
+  14: ["The second trimester begins.", "दोस्रो त्रैमासिक सुरु हुन्छ।"],
+  15: ["The baby's bones are developing.", "शिशुका हड्डीहरू विकास हुँदैछन्।"],
+  16: ["The baby's movements become more coordinated.", "शिशुको चाल अझ समन्वित हुँदैछ।"],
+  17: ["Fat begins developing under the baby's skin.", "शिशुको छालामुनि बोसो जम्मा हुन थाल्छ।"],
+  18: ["The baby's ears and nervous system develop.", "शिशुको कान र स्नायु प्रणाली विकास हुँदैछन्।"],
+  19: ["A protective coating begins covering the baby's skin.", "शिशुको छालामा सुरक्षात्मक तह बन्न थाल्छ।"],
+  20: ["The anatomy scan is usually performed around this period.", "यस समयमा सामान्यतया एनाटोमी स्क्यान गरिन्छ।"],
+  21: ["The baby's digestive system develops.", "शिशुको पाचन प्रणाली विकास हुँदैछ।"],
+  22: ["The baby's lungs continue developing.", "शिशुको फोक्सो विकास हुँदैछ।"],
+  23: ["The baby's hearing develops.", "शिशुको सुन्ने क्षमता विकास हुँदैछ।"],
+  24: ["The baby's lungs are still immature.", "शिशुको फोक्सो अझै पूर्ण विकसित भएको छैन।"],
+  25: ["The baby's skin becomes less transparent.", "शिशुको छाला बाक्लो हुँदैछ।"],
+  26: ["The baby's eyes continue developing.", "शिशुका आँखाहरू विकास हुँदैछन्।"],
+  27: ["Brain development continues rapidly.", "मस्तिष्कको विकास तीव्र गतिमा जारी छ।"],
+  28: ["The third trimester begins.", "तेस्रो त्रैमासिक सुरु हुन्छ।"],
+  29: ["The baby's muscles and bones develop.", "शिशुका मांसपेशी र हड्डी विकास हुँदैछन्।"],
+  30: ["The baby's brain grows rapidly.", "शिशुको मस्तिष्क तीव्र रूपमा बढ्दैछ।"],
+  31: ["The nervous system continues maturing.", "स्नायु प्रणाली परिपक्व हुँदैछ।"],
+  32: ["The baby's bones are developed, but the skull remains flexible.", "शिशुका हड्डीहरू विकसित भएका छन् तर टाउकोको हड्डी लचिलो रहन्छ।"],
+  33: ["The immune system continues developing.", "रोग प्रतिरोधात्मक क्षमता विकास हुँदैछ।"],
+  34: ["The lungs continue maturing.", "फोक्सो अझ परिपक्व हुँदैछ।"],
+  35: ["The brain and nervous system continue maturing.", "मस्तिष्क र स्नायु प्रणाली परिपक्व हुँदैछन्।"],
+  36: ["The baby is approaching full term.", "शिशु पूर्ण अवधिको नजिक पुग्दैछ।"],
+  37: ["The pregnancy is now early term.", "गर्भावस्था प्रारम्भिक पूर्ण अवधिमा पुगेको छ।"],
+  38: ["The baby continues gaining weight.", "शिशुको तौल बढ्दैछ।"],
+  39: ["The baby is full term.", "शिशु पूर्ण अवधिमा पुगेको छ।"],
+  40: ["This is the estimated due-date week.", "यो सम्भावित प्रसव मिति पर्ने हप्ता हो।"]
+};
+
+const select = document.getElementById("weekSelect");
+
+for (let i = 1; i <= 40; i++) {
+  const option = document.createElement("option");
+  option.value = i;
+  option.textContent = "Week " + i;
+  select.appendChild(option);
+}
+
+function showWeek() {
+
+  const week = Number(select.value);
+
+  if (!week) return;
+
+  const trimester = week <= 13 ? 1 : week <= 27 ? 2 : 3;
+
+  document.getElementById("weekHeading").textContent =
+    (isNepali ? "गर्भावस्थाको हप्ता " : "Pregnancy Week ") + week;
+
+  document.getElementById("trimester").textContent =
+    (isNepali ? "त्रैमासिक " : "Trimester ") + trimester;
+
+  document.getElementById("babyInfo").textContent =
+    pregnancyWeeks[week][isNepali ? 1 : 0];
+
+  document.getElementById("motherInfo").textContent =
+    isNepali
+    ? "यस समयमा थकान, वाकवाकी वा अन्य लक्षण हुन सक्छन्। हरेक गर्भावस्था फरक हुन्छ।"
+    : "You may experience fatigue, nausea or other symptoms. Every pregnancy is different.";
+
+  document.getElementById("doctorInfo").textContent =
+    isNepali
+    ? "नियमित गर्भ जाँच गर्नुहोस्। रक्तस्राव, पानी बग्ने वा तीव्र पेट दुखाइ भए तुरुन्त स्वास्थ्य संस्थामा जानुहोस्।"
+    : "Attend regular antenatal checkups. Seek urgent care for bleeding, leaking fluid or severe abdominal pain.";
+
+}
 
 function changeLanguage() {
 
@@ -506,114 +354,16 @@ function changeLanguage() {
   document.getElementById("languageButton").textContent =
     isNepali ? "English" : "नेपाली";
 
-const selectedWeek = document.getElementById("weekSelect").value;
-document.getElementById("weekSelect").innerHTML =
-  '<option value="">Choose week (1–40)</option>';
-populateWeeks();
-document.getElementById("weekSelect").value = selectedWeek;
-if (selectedWeek) showWeek();}
-
-function const pregnancyWeeks = {
-1: ["Pregnancy is dated from the first day of your last menstrual period. Conception has not usually occurred yet.", "गर्भावस्थाको गणना अन्तिम महिनावारी सुरु भएको पहिलो दिनबाट गरिन्छ। यस समयमा सामान्यतया गर्भाधान भएको हुँदैन।"],
-2: ["Ovulation usually occurs around this time in a typical 28-day cycle.", "सामान्य २८ दिनको महिनावारी चक्रमा यस समयमा डिम्ब निष्कासन हुन सक्छ।"],
-3: ["Fertilization may occur and the early embryo begins dividing.", "यस समयमा निषेचन हुन सक्छ र भ्रूणका कोषहरू विभाजन हुन थाल्छन्।"],
-4: ["The embryo may implant in the uterus. Early pregnancy hormone hCG starts rising.", "भ्रूण पाठेघरमा टाँसिन सक्छ र hCG हर्मोन बढ्न थाल्छ।"],
-5: ["The early brain, spinal cord and heart structures begin developing.", "मस्तिष्क, मेरुदण्ड र मुटुको प्रारम्भिक संरचना बन्न थाल्छ।"],
-6: ["Early heart activity may be visible on ultrasound in some pregnancies.", "केही गर्भावस्थामा अल्ट्रासाउन्डमा मुटुको प्रारम्भिक गतिविधि देखिन सक्छ।"],
-7: ["The brain and facial structures continue developing.", "मस्तिष्क र अनुहारका संरचनाहरू विकास हुँदैछन्।"],
-8: ["The arms and legs are developing and the embryo is growing rapidly.", "हातखुट्टा विकास हुँदैछन् र भ्रूण छिटो बढिरहेको छ।"],
-9: ["The embryo is now called a fetus. Major organs continue developing.", "अब भ्रूणलाई फेटस भनिन्छ। मुख्य अंगहरूको विकास जारी रहन्छ।"],
-10: ["Fingers and toes are becoming more distinct.", "हातका औँला र खुट्टाका औँलाहरू स्पष्ट हुँदैछन्।"],
-11: ["The head is large compared with the body. Facial features are developing.", "शरीरको तुलनामा टाउको ठूलो हुन्छ। अनुहारका अंगहरू विकास हुँदैछन्।"],
-12: ["The fetus is moving, although the mother usually cannot feel these movements yet.", "शिशु चलिरहेको हुन्छ तर आमाले सामान्यतया चाल महसुस गर्न सक्नुहुन्न।"],
-13: ["The first trimester is ending. Growth and organ development continue.", "पहिलो त्रैमासिक समाप्त हुँदैछ। शिशुको वृद्धि जारी छ।"],
-14: ["The second trimester begins. The baby's body continues growing.", "दोस्रो त्रैमासिक सुरु हुन्छ। शिशुको शरीर बढ्दै जान्छ।"],
-15: ["The baby's bones are developing and becoming stronger.", "शिशुका हड्डीहरू विकास हुँदैछन् र बलियो बन्दैछन्।"],
-16: ["The baby's movements are becoming more coordinated.", "शिशुको चाल अझ समन्वित हुँदैछ।"],
-17: ["Fat is beginning to develop under the baby's skin.", "शिशुको छालामुनि बोसो जम्मा हुन थाल्छ।"],
-18: ["The baby's ears and nervous system continue developing.", "शिशुको कान र स्नायु प्रणाली विकास हुँदैछन्।"],
-19: ["A protective coating called vernix begins covering the skin.", "शिशुको छालामा भर्निक्स नामको सुरक्षात्मक तह बन्न थाल्छ।"],
-20: ["You are around halfway through pregnancy. The anatomy scan is usually performed around this period.", "गर्भावस्थाको लगभग आधा समय पूरा भएको छ। यस समयमा सामान्यतया एनाटोमी स्क्यान गरिन्छ।"],
-21: ["The baby's digestive system is developing and movements may become more noticeable.", "शिशुको पाचन प्रणाली विकास हुँदैछ र चाल अझ महसुस हुन सक्छ।"],
-22: ["The baby's lungs continue developing.", "शिशुको फोक्सो विकास हुँदैछ।"],
-23: ["The baby's hearing is developing and sounds may be detected.", "शिशुको सुन्ने क्षमता विकास हुँदैछ।"],
-24: ["The lungs are developing, but the baby would still need intensive care if born now.", "फोक्सो विकास हुँदैछ, तर अहिले जन्मिएमा शिशुलाई विशेष उपचार आवश्यक पर्न सक्छ।"],
-25: ["The baby's skin is becoming less transparent.", "शिशुको छाला पहिलेभन्दा बाक्लो हुँदैछ।"],
-26: ["The baby's eyes are developing and may begin to open.", "शिशुका आँखाहरू विकास हुँदैछन् र खुल्न थाल्न सक्छन्।"],
-27: ["The third trimester is approaching. Brain development continues rapidly.", "तेस्रो त्रैमासिक नजिकिँदैछ। मस्तिष्कको विकास तीव्र गतिमा जारी छ।"],
-28: ["The third trimester begins. Regular attention to fetal movements is important.", "तेस्रो त्रैमासिक सुरु हुन्छ। शिशुको चालमा ध्यान दिनु महत्त्वपूर्ण हुन्छ।"],
-29: ["The baby's muscles and bones continue developing.", "शिशुका मांसपेशी र हड्डी विकास हुँदैछन्।"],
-30: ["The baby's brain is growing rapidly and body fat is increasing.", "शिशुको मस्तिष्क तीव्र रूपमा बढ्दैछ र शरीरमा बोसो बढ्दैछ।"],
-31: ["The baby's nervous system continues maturing.", "शिशुको स्नायु प्रणाली परिपक्व हुँदैछ।"],
-32: ["The baby's bones are developed, although the skull remains soft and flexible.", "शिशुका हड्डीहरू विकसित भएका छन् तर टाउकोको हड्डी नरम र लचिलो रहन्छ।"],
-33: ["The baby's immune system continues developing.", "शिशुको रोग प्रतिरोधात्मक क्षमता विकास हुँदैछ।"],
-34: ["The baby's lungs are maturing further.", "शिशुको फोक्सो अझ परिपक्व हुँदैछ।"],
-35: ["The baby's brain and nervous system continue maturing.", "शिशुको मस्तिष्क र स्नायु प्रणाली अझ परिपक्व हुँदैछन्।"],
-36: ["The baby is approaching full term. The position of the baby is important to assess.", "शिशु पूर्ण अवधिको नजिक पुग्दैछ। शिशुको अवस्था जाँच गर्नु महत्त्वपूर्ण हुन्छ।"],
-37: ["The pregnancy is now early term. Birth may happen at any time.", "अब गर्भावस्था प्रारम्भिक पूर्ण अवधि (Early term) मा पुगेको छ। जुनसुकै समयमा प्रसव हुन सक्छ।"],
-38: ["The baby continues gaining weight and preparing for birth.", "शिशुको तौल बढ्दैछ र जन्मका लागि तयारी हुँदैछ।"],
-39: ["The baby is full term and continues growing.", "शिशु पूर्ण अवधिमा पुगेको छ र अझै बढिरहेको छ।"],
-40: ["This is the estimated due-date week. Only a small proportion of babies are born exactly on their due date.", "यो सम्भावित प्रसव मिति पर्ने हप्ता हो। थोरै शिशु मात्र ठ्याक्कै यही मितिमा जन्मिन्छन्।"]
-};
-
-function populateWeeks() {
-  const select = document.getElementById("weekSelect");
+  const selectedWeek = select.value;
 
   for (let i = 1; i <= 40; i++) {
-    const option = document.createElement("option");
-    option.value = i;
-    option.textContent = (isNepali ? "हप्ता " : "Week ") + i;
-    select.appendChild(option);
-  }
-}
-
-function showWeek() {
-
-  const week = Number(document.getElementById("weekSelect").value);
-
-  if (!week) return;
-
-  const trimester = week <= 13 ? 1 : week <= 27 ? 2 : 3;
-
-  const data = pregnancyWeeks[week];
-
-  document.getElementById("weekHeading").textContent =
-    (isNepali ? "गर्भावस्थाको " : "Pregnancy Week ") + week;
-
-  document.getElementById("trimester").textContent =
-    (isNepali ? "त्रैमासिक " : "Trimester ") + trimester;
-
-  document.getElementById("babyInfo").textContent =
-    isNepali ? data[1] : data[0];
-
-  document.getElementById("motherInfo").textContent =
-    isNepali
-    ? "यस समयमा थकान, वाकवाकी, भोकमा परिवर्तन वा अन्य लक्षण हुन सक्छन्। सबै आमाको अनुभव फरक हुन्छ।"
-    : "You may experience fatigue, nausea, appetite changes or other symptoms. Every pregnancy is different.";
-
-  document.getElementById("doctorInfo").textContent =
-    isNepali
-    ? "नियमित गर्भ जाँच गर्नुहोस्। रक्तस्राव, पानी बग्ने, तीव्र पेट दुख्ने वा अन्य चिन्ताजनक लक्षण भए तुरुन्त स्वास्थ्य संस्थामा जानुहोस्।"
-    : "Attend regular antenatal checkups. Seek urgent medical care for bleeding, leaking fluid, severe abdominal pain or other concerning symptoms.";
-
-}
-
-populateWeeks(); {
-
-  const week = Number(document.getElementById("weekInput").value);
-
-  const result = document.getElementById("weekResult");
-
-  if (week < 1 || week > 40 || !Number.isInteger(week)) {
-    result.textContent = isNepali
-      ? "कृपया १ देखि ४० सम्मको हप्ता लेख्नुहोस्।"
-      : "Please enter a valid week between 1 and 40.";
-    return;
+    select.options[i].textContent =
+      (isNepali ? "हप्ता " : "Week ") + i;
   }
 
-  result.textContent = isNepali
-    ? "तपाईं गर्भावस्थाको " + week + " औँ हप्तामा हुनुहुन्छ। विस्तृत जानकारी चाँडै उपलब्ध हुनेछ।"
-    : "You are in week " + week + " of pregnancy. Detailed information is coming soon.";
+  select.value = selectedWeek;
+
+  if (selectedWeek) showWeek();
 
 }
 
