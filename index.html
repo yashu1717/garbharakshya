@@ -269,6 +269,46 @@ footer {
 
   <div id="eddResult"></div>
 </section>
+<section id="pregnancyDashboard" style="display:none;">
+
+  <h2>Your Pregnancy Journey</h2>
+
+  <div id="pregnancyStatus">
+    <h3 id="gestationalAge"></h3>
+    <p id="trimesterStatus"></p>
+  </div>
+
+  <div class="week-navigation">
+    <button type="button" onclick="changePregnancyWeek(-1)">
+      ← Previous Week
+    </button>
+
+    <h3 id="selectedWeek">Week 1</h3>
+
+    <button type="button" onclick="changePregnancyWeek(1)">
+      Next Week →
+    </button>
+  </div>
+
+  <button type="button" onclick="goToCurrentWeek()">
+    Go to Current Week
+  </button>
+
+  <div id="weeklyPregnancyContent">
+
+    <h3>👶 Baby's Development</h3>
+    <p id="babyDevelopment"></p>
+
+    <h3>🤰 Mother's Changes</h3>
+    <p id="motherChanges"></p>
+
+    <h3>🩺 Doctor's Advice</h3>
+    <p id="doctorAdvice"></p>
+
+  </div>
+
+</section>
+
 
 
 <section class="section">
