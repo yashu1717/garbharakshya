@@ -226,7 +226,50 @@ footer {
     Understand your baby's development, your body changes and how to have a healthy pregnancy with doctor-guided information.
   </p>
 </section>
-<section id="eddCalculator" class="edd-section"> <h2>EDD Calculator | प्रसूति मिति गणक</h2> <p> Calculate your expected date of delivery. <br> आफ्नो प्रसूति मिति थाहा पाउनुहोस्। </p> <label for="calendarType"> Select Calendar / पात्रो छान्नुहोस् </label> <select id="calendarType"> <option value="AD">English Calendar (AD)</option> <option value="BS">नेपाली पात्रो (BS)</option> </select> <label for="lmpDate"> First day of last menstrual period (LMP) <br> अन्तिम महिनावारी भएको पहिलो दिन </label> <input type="text" id="lmpDate" placeholder="YYYY-MM-DD" > <button type="button" onclick="calculateEDD()"> Calculate EDD | मिति गणना गर्नुहोस् </button> <div id="eddResult"></div> </section>  
+ 
+<section id="eddCalculator" class="edd-section">
+  <h2 data-en="EDD Calculator"
+      data-np="प्रसूति मिति गणक">
+    EDD Calculator
+  </h2>
+
+  <p data-en="Calculate your expected date of delivery."
+     data-np="आफ्नो प्रसूति मिति थाहा पाउनुहोस्।">
+    Calculate your expected date of delivery.
+  </p>
+
+  <label for="calendarType"
+         data-en="Select Calendar"
+         data-np="पात्रो छान्नुहोस्">
+    Select Calendar
+  </label>
+
+  <select id="calendarType">
+    <option value="AD">English Calendar (AD)</option>
+    <option value="BS">नेपाली पात्रो (BS)</option>
+  </select>
+
+  <label for="lmpDate"
+         data-en="First day of last menstrual period (LMP)"
+         data-np="अन्तिम महिनावारी भएको पहिलो दिन">
+    First day of last menstrual period (LMP)
+  </label>
+
+  <input
+    type="text"
+    id="lmpDate"
+    placeholder="YYYY-MM-DD"
+  >
+
+  <button type="button" onclick="calculateEDD()"
+          data-en="Calculate EDD"
+          data-np="प्रसूति मिति गणना गर्नुहोस्">
+    Calculate EDD
+  </button>
+
+  <div id="eddResult"></div>
+</section>
+
 
 <section class="section">
 
