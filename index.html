@@ -914,37 +914,81 @@ function changeLanguage() {
 
   <script>
     
+
 function calculateEDD() {
- 
   const calendar = document.getElementById("calendarType").value;
   const lmp = document.getElementById("lmpDate").value.trim();
   const result = document.getElementById("eddResult");
+
+  const NepaliDateClass =
+    window.NepaliDate || window.NepaliDateConverter;
 
   if (!lmp) {
     result.innerHTML = "Please enter your LMP date.";
     return;
   }
 
-  if (calendar === "AD") {
-    const date = new Date(lmp + "T12:00:00");
+  if (!NepaliDateClass) {
+    result.innerHTML = "Nepali calendar library not loaded. Please refresh.";
+    return;
+  }
 
-    if (isNaN(date.getTime())) {
-      result.innerHTML = "Please enter a valid AD date.";
-      return;
+  try {
+    let lmpDate;
+
+    if (calendar === "AD") {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(lmp)) {
+        throw new Error("Enter AD date as YYYY-MM-DD.");
+      }
+
+      const [y, m, d] = lmp.split("-").map(Number);
+      lmpDate = new Date(y, m - 1, d, 12);
+
+      if (
+        lmpDate.getFullYear() !== y ||
+        lmpDate.getMonth() !== m - 1 ||
+        lmpDate.getDate() !== d
+      ) {
+        throw new Error("Invalid AD date.");
+      }
+    } else {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(lmp)) {
+        throw new Error("Enter BS date as YYYY-MM-DD.");
+      }
+
+      const [y, m, d] = lmp.split("-").map(Number);
+      const nepaliDate = new NepaliDateClass(y, m - 1, d);
+      const bs = nepaliDate.getBS();
+
+      if (bs.year !== y || bs.month !== m - 1 || bs.date !== d) {
+        throw new Error("Invalid BS date.");
+      }
+
+      lmpDate = nepaliDate.toJsDate();
     }
 
-    const edd = new Date(date);
+    const edd = new Date(lmpDate);
     edd.setDate(edd.getDate() + 280);
 
+    const eddBS = new NepaliDateClass(edd).getBS();
+
+    const adText = edd.toLocaleDateString("en-GB");
+    const bsText =
+      eddBS.year + "-" +
+      String(eddBS.month + 1).padStart(2, "0") + "-" +
+      String(eddBS.date).padStart(2, "0");
+
     result.innerHTML =
-      "<h3>Your Expected Due Date</h3>" +
-      "<p>EDD (AD): " + edd.toLocaleDateString("en-GB") + "</p>" +
-      "<p>For accurate BS conversion, we'll add the Nepali calendar engine next.</p>";
-  } else {
-    result.innerHTML =
-      "BS date conversion will be activated in the next step.";
+      "<h3>Your Expected Due Date | प्रसूति मिति</h3>" +
+      "<p><b>EDD (AD):</b> " + adText + "</p>" +
+      "<p><b>EDD (BS):</b> " + bsText + "</p>" +
+      "<p>Estimated date based on LMP + 280 days. Clinical assessment may revise the date.</p>";
+
+  } catch (error) {
+    result.innerHTML = error.message;
   }
 }
+
 </script>
   <section id="about" class="about-section">
   <h2>About Dr. Yashu | डा. यशु</h2>
