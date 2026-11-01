@@ -1051,7 +1051,7 @@ function calculateEDD() {
     const weekText = np
       ? `गर्भावस्थाको अवधि: ${weeks} हप्ता ${days} दिन`
       : `Gestational age: ${weeks} weeks + ${days} days`;
-
+alert("Weeks: " + weeks + ", Days: " + days + ", Trimester: " + trimester);
     result.innerHTML =
       `<h3>${np ? "प्रसूति हुने अनुमानित मिति" : "Expected Date of Delivery"}</h3>` +
       `<p><b>EDD (AD):</b> ${adText}</p>` +
