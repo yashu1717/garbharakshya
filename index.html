@@ -1471,28 +1471,24 @@ function showPregnancyWeek(week) {
 
   document.getElementById("babyDevelopment").textContent =
     data ? data[languageIndex] : "Content coming soon.";
-const motherData = motherChangesWeeks[week];
-const adviceData = doctorAdviceWeeks[week];
 
-document.getElementById("doctorAdvice").textContent =
-  adviceData
-    ? adviceData[languageIndex]
-    : (isNepali
-        ? "चिकित्सकीय सल्लाह चाँडै उपलब्ध हुनेछ।"
-        : "Doctor's advice coming soon.");
-document.getElementById("motherChanges").textContent =
-  motherData
-    ? motherData[languageIndex]
-    : (isNepali
-        ? "यस हप्ताको जानकारी चाँडै उपलब्ध हुनेछ।"
-        : "Information coming soon.");
+  const motherData = motherChangesWeeks[week];
+
   document.getElementById("motherChanges").textContent =
-    isNepali ? "यो हप्ताको जानकारी चाँडै उपलब्ध हुनेछ।" :
-    "Mother's changes information coming soon.";
+    motherData
+      ? motherData[languageIndex]
+      : (isNepali
+          ? "यस हप्ताको जानकारी चाँडै उपलब्ध हुनेछ।"
+          : "Information coming soon.");
+
+  const adviceData = doctorAdviceWeeks[week];
 
   document.getElementById("doctorAdvice").textContent =
-    isNepali ? "चिकित्सकीय सल्लाह चाँडै उपलब्ध हुनेछ।" :
-    "Doctor's advice coming soon.";
+    adviceData
+      ? adviceData[languageIndex]
+      : (isNepali
+          ? "चिकित्सकीय सल्लाह चाँडै उपलब्ध हुनेछ।"
+          : "Doctor's advice coming soon.");
 }
 </script>
   <section id="about" class="about-section">
