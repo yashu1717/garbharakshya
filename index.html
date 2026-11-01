@@ -1136,6 +1136,52 @@ function goToCurrentWeek() {
 }
 
 
+const doctorAdviceWeeks = {
+  1: [
+    "If you are planning pregnancy, start folic acid 400 mcg daily and review your medications with your doctor.",
+    "यदि गर्भधारणको योजना बनाउँदै हुनुहुन्छ भने दैनिक ४०० माइक्रोग्राम फोलिक एसिड सुरु गर्नुहोस् र औषधिबारे चिकित्सकसँग सल्लाह लिनुहोस्।"
+  ],
+  2: [
+    "Maintain a balanced diet, avoid smoking and alcohol, and continue folic acid.",
+    "सन्तुलित खाना खानुहोस्, धूम्रपान र मदिराबाट टाढा रहनुहोस् र फोलिक एसिड जारी राख्नुहोस्।"
+  ],
+  3: [
+    "If pregnancy is possible, take a pregnancy test around the expected period and continue folic acid.",
+    "गर्भधारणको सम्भावना भए महिनावारी हुने समय आसपास गर्भ परीक्षण गर्नुहोस् र फोलिक एसिड जारी राख्नुहोस्।"
+  ],
+  4: [
+    "Confirm pregnancy and arrange your first antenatal appointment. Seek care for heavy bleeding or severe abdominal pain.",
+    "गर्भावस्था पुष्टि गरी पहिलो गर्भ जाँचको व्यवस्था गर्नुहोस्। धेरै रगत बगेमा वा कडा पेट दुखेमा तुरुन्त स्वास्थ्य संस्थामा जानुहोस्।"
+  ],
+  5: [
+    "Arrange antenatal care, review your medicines and discuss any medical conditions with your doctor.",
+    "गर्भ जाँच सुरु गर्नुहोस्, आफूले लिइरहेका औषधिबारे समीक्षा गर्नुहोस् र स्वास्थ्य समस्याबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+  ]
+};
+
+const motherChangesWeeks = {
+  1: [
+    "This week marks the beginning of your menstrual cycle. Pregnancy has not yet occurred.",
+    "यो हप्ता महिनावारी चक्रको सुरुवात हो। यस समयमा गर्भधारण भएको हुँदैन।"
+  ],
+  2: [
+    "Ovulation usually occurs around this time. You may not notice any pregnancy symptoms yet.",
+    "यस समयमा सामान्यतया डिम्ब निष्कासन हुन्छ। गर्भावस्थाका लक्षणहरू अझै महसुस नहुन सक्छन्।"
+  ],
+  3: [
+    "Fertilization may occur. Most women do not notice any symptoms at this stage.",
+    "यस समयमा निषेचन हुन सक्छ। धेरै महिलाले यस चरणमा कुनै लक्षण महसुस गर्दैनन्।"
+  ],
+  4: [
+    "Some women may notice a missed period, mild cramps or light spotting.",
+    "केही महिलाले महिनावारी रोकिने, हल्का पेट दुख्ने वा थोरै रगत देखिने अनुभव गर्न सक्छन्।"
+  ],
+  5: [
+    "You may experience nausea, breast tenderness, tiredness or frequent urination.",
+    "वाकवाकी लाग्ने, स्तन दुख्ने, थकान हुने वा बारम्बार पिसाब लाग्ने हुन सक्छ।"
+  ]
+};
+
 function showPregnancyWeek(week) {
   document.getElementById("selectedWeek").textContent =
     (isNepali ? "हप्ता " : "Week ") + week;
@@ -1145,7 +1191,21 @@ function showPregnancyWeek(week) {
 
   document.getElementById("babyDevelopment").textContent =
     data ? data[languageIndex] : "Content coming soon.";
+const motherData = motherChangesWeeks[week];
+const adviceData = doctorAdviceWeeks[week];
 
+document.getElementById("doctorAdvice").textContent =
+  adviceData
+    ? adviceData[languageIndex]
+    : (isNepali
+        ? "चिकित्सकीय सल्लाह चाँडै उपलब्ध हुनेछ।"
+        : "Doctor's advice coming soon.");
+document.getElementById("motherChanges").textContent =
+  motherData
+    ? motherData[languageIndex]
+    : (isNepali
+        ? "यस हप्ताको जानकारी चाँडै उपलब्ध हुनेछ।"
+        : "Information coming soon.");
   document.getElementById("motherChanges").textContent =
     isNepali ? "यो हप्ताको जानकारी चाँडै उपलब्ध हुनेछ।" :
     "Mother's changes information coming soon.";
