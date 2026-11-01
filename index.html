@@ -1138,8 +1138,8 @@ function goToCurrentWeek() {
 
 const doctorAdviceWeeks = {
   1: [
-    "If you are planning pregnancy, start folic acid 400 mcg daily and review your medications with your doctor.",
-    "यदि गर्भधारणको योजना बनाउँदै हुनुहुन्छ भने दैनिक ४०० माइक्रोग्राम फोलिक एसिड सुरु गर्नुहोस् र औषधिबारे चिकित्सकसँग सल्लाह लिनुहोस्।"
+    "If planning pregnancy, start folic acid 400 mcg daily and review your medicines with your doctor.",
+    "गर्भधारणको योजना बनाउँदै हुनुहुन्छ भने दैनिक ४०० माइक्रोग्राम फोलिक एसिड सुरु गर्नुहोस् र औषधिबारे चिकित्सकसँग सल्लाह लिनुहोस्।"
   ],
   2: [
     "Maintain a balanced diet, avoid smoking and alcohol, and continue folic acid.",
@@ -1156,6 +1156,146 @@ const doctorAdviceWeeks = {
   5: [
     "Arrange antenatal care, review your medicines and discuss any medical conditions with your doctor.",
     "गर्भ जाँच सुरु गर्नुहोस्, आफूले लिइरहेका औषधिबारे समीक्षा गर्नुहोस् र स्वास्थ्य समस्याबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+  ],
+  6: [
+    "Arrange your first antenatal assessment if not already done. Discuss supplements and necessary tests.",
+    "अहिलेसम्म पहिलो गर्भ जाँच नगरेको भए गराउनुहोस्। आवश्यक सप्लिमेन्ट र परीक्षणबारे छलफल गर्नुहोस्।"
+  ],
+  7: [
+    "Continue folic acid, eat balanced meals and avoid alcohol and tobacco.",
+    "फोलिक एसिड जारी राख्नुहोस्, सन्तुलित खाना खानुहोस् र मदिरा तथा सुर्तीजन्य पदार्थबाट टाढा रहनुहोस्।"
+  ],
+  8: [
+    "Discuss nausea management with your doctor if it affects eating or drinking. Seek care if you cannot keep fluids down.",
+    "वाकवाकीले खाना वा पानी खान गाह्रो भए चिकित्सकसँग उपचारबारे छलफल गर्नुहोस्। पानीसमेत अडिन नसके स्वास्थ्य जाँच गराउनुहोस्।"
+  ],
+  9: [
+    "Attend antenatal appointments and discuss any medicines before taking them.",
+    "गर्भ जाँचमा नियमित जानुहोस् र कुनै पनि औषधि लिनुअघि चिकित्सकसँग सल्लाह गर्नुहोस्।"
+  ],
+  10: [
+    "Discuss recommended blood tests, ultrasound timing and screening options with your healthcare provider.",
+    "आवश्यक रगत परीक्षण, अल्ट्रासाउन्डको समय र स्क्रिनिङ विकल्पबारे स्वास्थ्यकर्मीसँग छलफल गर्नुहोस्।"
+  ],
+  11: [
+    "Ask your doctor about first-trimester screening options and the recommended timing.",
+    "पहिलो त्रैमासिकको स्क्रिनिङ विकल्प र उपयुक्त समयबारे चिकित्सकसँग सल्लाह लिनुहोस्।"
+  ],
+  12: [
+    "Attend your scheduled antenatal visit and discuss screening results and ongoing care.",
+    "निर्धारित गर्भ जाँचमा जानुहोस् र स्क्रिनिङको नतिजा तथा आगामी हेरचाहबारे छलफल गर्नुहोस्।"
+  ],
+  13: [
+    "Review your first-trimester results and plan second-trimester care with your doctor.",
+    "पहिलो त्रैमासिकका परीक्षण नतिजा समीक्षा गरी दोस्रो त्रैमासिकको हेरचाहको योजना बनाउनुहोस्।"
+  ],
+    14: [
+    "Continue antenatal visits, prescribed supplements and a balanced diet. Discuss any concerns with your doctor.",
+    "नियमित गर्भ जाँच, चिकित्सकले दिएको सप्लिमेन्ट र सन्तुलित आहार जारी राख्नुहोस्। कुनै समस्या भए चिकित्सकसँग छलफल गर्नुहोस्।"
+  ],
+  15: [
+    "Discuss the recommended timing of your anatomy ultrasound and any screening tests.",
+    "बच्चाको शारीरिक संरचना जाँच गर्ने अल्ट्रासाउन्ड र आवश्यक स्क्रिनिङ परीक्षणको समयबारे छलफल गर्नुहोस्।"
+  ],
+  16: [
+    "Attend your scheduled antenatal visit. Ask your doctor about fetal movement and upcoming scans.",
+    "निर्धारित गर्भ जाँचमा जानुहोस्। बच्चाको चाल र आगामी अल्ट्रासाउन्डबारे चिकित्सकसँग सोध्नुहोस्।"
+  ],
+  17: [
+    "Plan your detailed fetal anatomy scan, usually performed around 18–22 weeks.",
+    "सामान्यतया १८–२२ हप्तामा गरिने बच्चाको विस्तृत शारीरिक संरचना जाँचको योजना बनाउनुहोस्।"
+  ],
+  18: [
+    "Attend your detailed fetal anatomy ultrasound if scheduled. Discuss the findings with your doctor.",
+    "निर्धारित भए बच्चाको विस्तृत संरचना जाँच गराउनुहोस् र नतिजाबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+  ],
+  19: [
+    "Review your anatomy scan results and discuss any additional assessment recommended by your doctor.",
+    "अल्ट्रासाउन्डको नतिजा समीक्षा गर्नुहोस् र थप जाँच आवश्यक भए चिकित्सकसँग छलफल गर्नुहोस्।"
+  ],
+  20: [
+    "Continue antenatal care. Discuss your blood pressure, nutrition and any new symptoms.",
+    "नियमित गर्भ जाँच जारी राख्नुहोस्। रक्तचाप, पोषण र नयाँ लक्षणबारे छलफल गर्नुहोस्।"
+  ],
+  21: [
+    "Ask about screening for gestational diabetes, usually offered between 24 and 28 weeks.",
+    "सामान्यतया २४–२८ हप्तामा गरिने गर्भावस्थाको मधुमेह परीक्षणबारे सोध्नुहोस्।"
+  ],
+  22: [
+    "Review your scan results and discuss iron, calcium and other supplements as appropriate.",
+    "अल्ट्रासाउन्डको नतिजा समीक्षा गर्नुहोस् र आवश्यकताअनुसार आइरन, क्याल्सियम तथा अन्य सप्लिमेन्टबारे छलफल गर्नुहोस्।"
+  ],
+  23: [
+    "Plan your glucose screening and discuss blood group and Rh-related care if applicable.",
+    "मधुमेह परीक्षणको योजना बनाउनुहोस् र आवश्यक भए रक्त समूह तथा Rh सम्बन्धी हेरचाहबारे छलफल गर्नुहोस्।"
+  ],
+  24: [
+    "Arrange gestational diabetes screening if due. Discuss blood pressure and urine testing at antenatal visits.",
+    "समय भएको भए गर्भावस्थाको मधुमेह परीक्षण गराउनुहोस्। गर्भ जाँचमा रक्तचाप र पिसाब परीक्षणबारे छलफल गर्नुहोस्।"
+  ],
+  25: [
+    "Continue regular antenatal visits. Discuss vaccination recommendations and fetal movements.",
+    "नियमित गर्भ जाँच जारी राख्नुहोस्। खोपको सिफारिस र बच्चाको चालबारे छलफल गर्नुहोस्।"
+  ],
+  26: [
+    "Review your glucose test results and discuss any treatment or follow-up needed.",
+    "मधुमेह परीक्षणको नतिजा समीक्षा गर्नुहोस् र आवश्यक उपचार वा फलोअपबारे छलफल गर्नुहोस्।"
+  ],
+  27: [
+    "Discuss third-trimester care, vaccination and birth preparation with your healthcare provider.",
+    "तेस्रो त्रैमासिकको हेरचाह, खोप र प्रसवको तयारीबारे स्वास्थ्यकर्मीसँग छलफल गर्नुहोस्।"
+  ],
+  28: [
+    "Begin or continue third-trimester antenatal care. Discuss fetal movement monitoring and warning signs.",
+    "तेस्रो त्रैमासिकको गर्भ जाँच सुरु वा जारी राख्नुहोस्। बच्चाको चाल र खतराका लक्षणबारे जानकारी लिनुहोस्।"
+  ],
+  29: [
+    "Discuss your birth preferences, delivery facility and any medical or obstetric risk factors.",
+    "प्रसवको इच्छा, प्रसव हुने स्वास्थ्य संस्था र स्वास्थ्यसम्बन्धी जोखिमबारे छलफल गर्नुहोस्।"
+  ],
+  30: [
+    "Review your blood pressure, fetal growth and any investigations recommended for your pregnancy.",
+    "रक्तचाप, बच्चाको वृद्धि र गर्भावस्थाका लागि सिफारिस गरिएका परीक्षण समीक्षा गर्नुहोस्।"
+  ],
+  31: [
+    "Discuss birth planning, transport to hospital and who will support you during labour.",
+    "प्रसवको योजना, अस्पताल पुग्ने यातायात र प्रसवका बेला सहयोग गर्ने व्यक्तिबारे योजना बनाउनुहोस्।"
+  ],
+  32: [
+    "Discuss the baby's position and the timing of future antenatal visits with your doctor.",
+    "बच्चाको अवस्था र आगामी गर्भ जाँचको समयबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+  ],
+  33: [
+    "Review your birth plan and learn when to come to hospital for contractions, bleeding or leaking fluid.",
+    "प्रसव योजनाको समीक्षा गर्नुहोस् र संकुचन, रक्तस्राव वा पानी बगेमा कहिले अस्पताल जाने भन्ने बुझ्नुहोस्।"
+  ],
+  34: [
+    "Check that your delivery arrangements are ready. Discuss newborn care and breastfeeding.",
+    "प्रसवका लागि आवश्यक व्यवस्था तयार छ कि छैन जाँच्नुहोस्। नवजात शिशुको हेरचाह र स्तनपानबारे छलफल गर्नुहोस्।"
+  ],
+  35: [
+    "Continue antenatal follow-up. Discuss fetal movements, delivery planning and any warning signs.",
+    "नियमित गर्भ जाँच जारी राख्नुहोस्। बच्चाको चाल, प्रसव योजना र खतराका लक्षणबारे छलफल गर्नुहोस्।"
+  ],
+  36: [
+    "Attend your recommended antenatal assessment. Discuss fetal position and birth options.",
+    "सिफारिस गरिएको गर्भ जाँचमा जानुहोस्। बच्चाको अवस्था र प्रसवका विकल्पबारे छलफल गर्नुहोस्।"
+  ],
+  37: [
+    "Discuss signs of labour, hospital contact arrangements and when to seek immediate assessment.",
+    "प्रसव सुरु हुने लक्षण, अस्पतालमा सम्पर्क गर्ने व्यवस्था र तुरुन्त जाँच गराउनुपर्ने अवस्थाबारे छलफल गर्नुहोस्।"
+  ],
+  38: [
+    "Continue follow-up as advised. Seek immediate assessment for reduced fetal movements, bleeding or leaking fluid.",
+    "चिकित्सकको सल्लाहअनुसार फलोअप जारी राख्नुहोस्। बच्चाको चाल कम भए, रगत बगे वा पानी बगे तुरुन्त जाँच गराउनुहोस्।"
+  ],
+  39: [
+    "Keep your hospital bag and transport ready. Do not wait at home if you have warning signs.",
+    "अस्पताल जाने झोला र यातायात तयार राख्नुहोस्। खतराका लक्षण देखिए घरमै पर्खेर नबस्नुहोस्।"
+  ],
+  40: [
+    "Attend follow-up even if labour has not started. Discuss monitoring and the plan for pregnancy beyond 40 weeks.",
+    "प्रसव सुरु नभए पनि गर्भ जाँचमा जानुहोस्। ४० हप्तापछि बच्चाको निगरानी र आगामी योजनाबारे छलफल गर्नुहोस्।"
   ]
 };
 
@@ -1179,6 +1319,146 @@ const motherChangesWeeks = {
   5: [
     "You may experience nausea, breast tenderness, tiredness or frequent urination.",
     "वाकवाकी लाग्ने, स्तन दुख्ने, थकान हुने वा बारम्बार पिसाब लाग्ने हुन सक्छ।"
+  ],
+  6: [
+    "Nausea, breast tenderness, fatigue and frequent urination may become more noticeable.",
+    "वाकवाकी, स्तन दुख्ने, थकान र बारम्बार पिसाब लाग्ने समस्या बढ्न सक्छ।"
+  ],
+  7: [
+    "You may experience bloating, nausea, food aversions and mood changes.",
+    "पेट फुल्ने, वाकवाकी लाग्ने, केही खानेकुराप्रति अरुचि र मनस्थितिमा परिवर्तन हुन सक्छ।"
+  ],
+  8: [
+    "Breast enlargement, tiredness, nausea and increased vaginal discharge may occur.",
+    "स्तनको आकार बढ्ने, थकान, वाकवाकी र योनि स्राव बढ्ने हुन सक्छ।"
+  ],
+  9: [
+    "Nausea and fatigue may continue. Some women notice constipation and bloating.",
+    "वाकवाकी र थकान जारी रहन सक्छ। केही महिलालाई कब्जियत र पेट फुल्ने समस्या हुन सक्छ।"
+  ],
+  10: [
+    "You may notice continued breast changes, nausea, constipation or increased appetite.",
+    "स्तनमा परिवर्तन, वाकवाकी, कब्जियत वा भोक बढ्ने अनुभव हुन सक्छ।"
+  ],
+  11: [
+    "Some women begin to feel less nauseated, while tiredness and breast tenderness may continue.",
+    "केही महिलामा वाकवाकी कम हुन थाल्छ, तर थकान र स्तन दुख्ने समस्या रहन सक्छ।"
+  ],
+  12: [
+    "Nausea may begin to improve. You may notice mild abdominal stretching sensations.",
+    "वाकवाकी कम हुन थाल्न सक्छ। पेटमा हल्का तन्किएको महसुस हुन सक्छ।"
+  ],
+  13: [
+    "You may notice improved energy and appetite as the first trimester comes to an end.",
+    "पहिलो त्रैमासिकको अन्त्यतिर ऊर्जा र भोकमा सुधार हुन सक्छ।"
+ ],
+    14: [
+    "Nausea may improve and energy may increase. Your abdomen may gradually become more noticeable.",
+    "वाकवाकी कम हुन र ऊर्जा बढ्न सक्छ। पेट बिस्तारै देखिन थाल्न सक्छ।"
+  ],
+  15: [
+    "You may notice nasal congestion, occasional headaches or changes in your skin.",
+    "नाक बन्द हुने, कहिलेकाहीँ टाउको दुख्ने वा छालामा परिवर्तन देखिन सक्छ।"
+  ],
+  16: [
+    "Some women begin to feel gentle fetal movements, especially if they have been pregnant before.",
+    "केही महिलाले विशेषगरी पहिले गर्भवती भइसकेका भए बच्चाको हल्का चाल महसुस गर्न सक्छन्।"
+  ],
+  17: [
+    "Your abdomen may grow, and you may notice increased appetite or mild back discomfort.",
+    "पेट बढ्न सक्छ र भोक बढ्ने वा ढाडमा हल्का असहजता हुन सक्छ।"
+  ],
+  18: [
+    "You may begin to feel more definite fetal movements. Mild backache may occur.",
+    "बच्चाको चाल अझ स्पष्ट महसुस हुन सक्छ। ढाड हल्का दुख्न सक्छ।"
+  ],
+  19: [
+    "Your skin may develop pigmentation changes, and your abdomen may feel stretched.",
+    "छालामा कालोपन देखिन सक्छ र पेट तन्किएको महसुस हुन सक्छ।"
+  ],
+  20: [
+    "You may notice more regular fetal movements and continued abdominal growth.",
+    "बच्चाको चाल नियमित महसुस हुन सक्छ र पेट बढ्दै जान सक्छ।"
+  ],
+  21: [
+    "You may experience leg cramps, backache or mild swelling after standing for long periods.",
+    "खुट्टा बाउँडिने, ढाड दुख्ने वा लामो समय उभिँदा हल्का सुन्निने हुन सक्छ।"
+  ],
+  22: [
+    "Your abdomen continues to grow. You may notice stretch marks or occasional heartburn.",
+    "पेट बढ्दै जान्छ। छालामा स्ट्रेच मार्क वा कहिलेकाहीँ छाती पोल्ने हुन सक्छ।"
+  ],
+  23: [
+    "Fetal movements may become stronger. You may experience backache or pelvic discomfort.",
+    "बच्चाको चाल बलियो हुन सक्छ। ढाड वा तल्लो पेटको भागमा असहजता हुन सक्छ।"
+  ],
+  24: [
+    "You may experience heartburn, constipation, leg cramps or difficulty finding a comfortable sleeping position.",
+    "छाती पोल्ने, कब्जियत, खुट्टा बाउँडिने वा आरामदायी सुत्ने अवस्था भेट्न गाह्रो हुन सक्छ।"
+  ],
+  25: [
+    "Your growing abdomen may cause backache. Fetal movements may feel stronger.",
+    "पेट बढ्दै जाँदा ढाड दुख्न सक्छ। बच्चाको चाल अझ बलियो महसुस हुन सक्छ।"
+  ],
+  26: [
+    "You may notice tiredness, leg cramps, heartburn or occasional breathlessness with activity.",
+    "थकान, खुट्टा बाउँडिने, छाती पोल्ने वा काम गर्दा कहिलेकाहीँ सास फेर्न गाह्रो हुन सक्छ।"
+  ],
+  27: [
+    "You may experience more noticeable fetal movements, backache and difficulty sleeping.",
+    "बच्चाको चाल अझ स्पष्ट हुन सक्छ। ढाड दुख्ने र निदाउन गाह्रो हुने हुन सक्छ।"
+  ],
+  28: [
+    "Your abdomen grows further. You may notice increased fatigue, heartburn and frequent urination.",
+    "पेट अझ बढ्छ। थकान, छाती पोल्ने र बारम्बार पिसाब लाग्ने हुन सक्छ।"
+  ],
+  29: [
+    "Fetal movements may feel stronger. You may experience pelvic pressure or back discomfort.",
+    "बच्चाको चाल बलियो महसुस हुन सक्छ। तल्लो पेटमा दबाब वा ढाडमा असहजता हुन सक्छ।"
+  ],
+  30: [
+    "You may feel more tired and experience difficulty sleeping, heartburn or breathlessness during activity.",
+    "थकान बढ्न सक्छ र निदाउन, छाती पोल्न वा काम गर्दा सास फेर्न गाह्रो हुन सक्छ।"
+  ],
+  31: [
+    "You may notice Braxton Hicks contractions, backache or increased pelvic pressure.",
+    "पाठेघर केही समय कसिने, ढाड दुख्ने वा तल्लो पेटमा दबाब महसुस हुन सक्छ।"
+  ],
+  32: [
+    "Your baby is growing rapidly. You may experience frequent urination, tiredness and sleep disturbance.",
+    "बच्चा छिटो बढिरहेको हुन्छ। बारम्बार पिसाब लाग्ने, थकान र निद्रामा समस्या हुन सक्छ।"
+  ],
+  33: [
+    "You may feel increased pelvic pressure and have difficulty finding a comfortable sleeping position.",
+    "तल्लो पेटमा दबाब बढ्न सक्छ र आरामदायी सुत्ने अवस्था भेट्न गाह्रो हुन सक्छ।"
+  ],
+  34: [
+    "You may experience more frequent Braxton Hicks contractions, backache and fatigue.",
+    "पाठेघर बेलाबेलामा कसिने, ढाड दुख्ने र थकान बढ्ने हुन सक्छ।"
+  ],
+  35: [
+    "Your baby continues to gain weight. You may feel heavier and need to urinate more often.",
+    "बच्चाको तौल बढ्दै जान्छ। शरीर भारी महसुस हुन सक्छ र बारम्बार पिसाब लाग्न सक्छ।"
+  ],
+  36: [
+    "You may notice increased pelvic pressure as your baby moves lower into the pelvis.",
+    "बच्चा श्रोणितर्फ तल सर्दै जाँदा तल्लो पेटमा दबाब बढ्न सक्छ।"
+  ],
+  37: [
+    "You may experience irregular contractions, pelvic discomfort and increased vaginal discharge.",
+    "अनियमित रूपमा पाठेघर कसिने, तल्लो पेटमा असहजता र योनि स्राव बढ्ने हुन सक्छ।"
+  ],
+  38: [
+    "You may feel increased pressure, tiredness and irregular contractions as your body prepares for birth.",
+    "प्रसवको तयारीसँगै दबाब, थकान र अनियमित रूपमा पाठेघर कसिने हुन सक्छ।"
+  ],
+  39: [
+    "You may experience pelvic pressure, backache and irregular contractions. Labour may begin at any time.",
+    "तल्लो पेटमा दबाब, ढाड दुख्ने र अनियमित संकुचन हुन सक्छ। जुनसुकै बेला प्रसव सुरु हुन सक्छ।"
+  ],
+  40: [
+    "You may feel heavy and uncomfortable. Labour may begin around this time, but some pregnancies continue beyond 40 weeks.",
+    "शरीर भारी र असहज महसुस हुन सक्छ। यस समयमा प्रसव सुरु हुन सक्छ, तर केही गर्भावस्था ४० हप्तापछि पनि जारी रहन्छ।"
   ]
 };
 
