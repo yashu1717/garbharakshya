@@ -931,33 +931,43 @@ function changeLanguage() {
   <script>
     
 
+
 function calculateEDD() {
   const calendar = document.getElementById("calendarType").value;
   const lmp = document.getElementById("lmpDate").value.trim();
   const result = document.getElementById("eddResult");
+  const np = isNepali;
 
   const NepaliDateClass =
     window.NepaliDate || window.NepaliDateConverter;
 
   if (!lmp) {
-    result.innerHTML = "Please enter your LMP date.";
+    result.innerHTML = np
+      ? "कृपया अन्तिम महिनावारीको मिति राख्नुहोस्।"
+      : "Please enter your LMP date.";
     return;
   }
 
   if (!NepaliDateClass) {
-    result.innerHTML = "Nepali calendar library not loaded. Please refresh.";
+    result.innerHTML = np
+      ? "नेपाली पात्रो लोड भएन। कृपया पेज रिफ्रेस गर्नुहोस्।"
+      : "Nepali calendar library not loaded. Please refresh.";
     return;
   }
 
   try {
     let lmpDate;
 
-    if (calendar === "AD") {
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(lmp)) {
-        throw new Error("Enter AD date as YYYY-MM-DD.");
-      }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(lmp)) {
+      throw new Error(
+        np ? "मिति YYYY-MM-DD ढाँचामा राख्नुहोस्।"
+           : "Enter date in YYYY-MM-DD format."
+      );
+    }
 
-      const [y, m, d] = lmp.split("-").map(Number);
+    const [y, m, d] = lmp.split("-").map(Number);
+
+    if (calendar === "AD") {
       lmpDate = new Date(y, m - 1, d, 12);
 
       if (
@@ -965,42 +975,95 @@ function calculateEDD() {
         lmpDate.getMonth() !== m - 1 ||
         lmpDate.getDate() !== d
       ) {
-        throw new Error("Invalid AD date.");
+        throw new Error(np ? "गलत AD मिति।" : "Invalid AD date.");
       }
     } else {
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(lmp)) {
-        throw new Error("Enter BS date as YYYY-MM-DD.");
-      }
-
-      const [y, m, d] = lmp.split("-").map(Number);
       const nepaliDate = new NepaliDateClass(y, m - 1, d);
       const bs = nepaliDate.getBS();
 
       if (bs.year !== y || bs.month !== m - 1 || bs.date !== d) {
-        throw new Error("Invalid BS date.");
+        throw new Error(np ? "गलत BS मिति।" : "Invalid BS date.");
       }
 
-      lmpDate = nepaliDate.toJsDate();
+      const converted = nepaliDate.toJsDate();
+      lmpDate = new Date(
+        converted.getFullYear(),
+        converted.getMonth(),
+        converted.getDate(),
+        12
+      );
+    }
+
+    const today = new Date();
+    const todayDate = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate(),
+      12
+    );
+
+    const dayNumber = date =>
+      Date.UTC(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate()
+      ) / 86400000;
+
+    const daysPregnant = Math.round(
+      dayNumber(todayDate) - dayNumber(lmpDate)
+    );
+
+    if (daysPregnant < 0) {
+      throw new Error(
+        np ? "महिनावारीको मिति भविष्यको हुन सक्दैन।"
+           : "LMP date cannot be in the future."
+      );
+    }
+
+    const weeks = Math.floor(daysPregnant / 7);
+    const days = daysPregnant % 7;
+
+    let trimester;
+    if (weeks < 14) {
+      trimester = np ? "पहिलो त्रैमासिक" : "First trimester";
+    } else if (weeks < 28) {
+      trimester = np ? "दोस्रो त्रैमासिक" : "Second trimester";
+    } else {
+      trimester = np ? "तेस्रो त्रैमासिक" : "Third trimester";
     }
 
     const edd = new Date(lmpDate);
     edd.setDate(edd.getDate() + 280);
 
+    // Retain the BS date adjustment tested on your website.
     const bsConversionDate = new Date(edd);
-bsConversionDate.setDate(bsConversionDate.getDate() - 1);
-const eddBS = new NepaliDateClass(bsConversionDate).getBS();
+    bsConversionDate.setDate(bsConversionDate.getDate() - 1);
+
+    const eddBS = new NepaliDateClass(bsConversionDate).getBS();
 
     const adText = edd.toLocaleDateString("en-GB");
+
     const bsText =
       eddBS.year + "-" +
       String(eddBS.month + 1).padStart(2, "0") + "-" +
       String(eddBS.date).padStart(2, "0");
 
+    const weekText = np
+      ? `गर्भावस्थाको अवधि: ${weeks} हप्ता ${days} दिन`
+      : `Gestational age: ${weeks} weeks + ${days} days`;
+
     result.innerHTML =
-      "<h3>Your Expected Due Date | प्रसूति मिति</h3>" +
-      "<p><b>EDD (AD):</b> " + adText + "</p>" +
-      "<p><b>EDD (BS):</b> " + bsText + "</p>" +
-      "<p>Estimated date based on LMP + 280 days. Clinical assessment may revise the date.</p>";
+      `<h3>${np ? "प्रसूति हुने अनुमानित मिति" : "Expected Date of Delivery"}</h3>` +
+      `<p><b>EDD (AD):</b> ${adText}</p>` +
+      `<p><b>EDD (BS):</b> ${bsText}</p>` +
+      `<hr>` +
+      `<h3>${np ? "गर्भावस्थाको अवस्था" : "Pregnancy Status"}</h3>` +
+      `<p><b>${weekText}</b></p>` +
+      `<p><b>${np ? "त्रैमासिक" : "Trimester"}:</b> ${trimester}</p>` +
+      `<p>${np
+        ? "यो LMP को आधारमा गरिएको अनुमान हो। आवश्यकताअनुसार अल्ट्रासाउन्ड तथा चिकित्सकीय मूल्याङ्कनबाट मिति परिमार्जन हुन सक्छ।"
+        : "This is an LMP-based estimate. Ultrasound and clinical assessment may revise the date."
+      }</p>`;
 
   } catch (error) {
     result.innerHTML = error.message;
