@@ -970,7 +970,9 @@ function calculateEDD() {
     const edd = new Date(lmpDate);
     edd.setDate(edd.getDate() + 280);
 
-    const eddBS = new NepaliDateClass(edd).getBS();
+    const bsConversionDate = new Date(edd);
+bsConversionDate.setDate(bsConversionDate.getDate() - 1);
+const eddBS = new NepaliDateClass(bsConversionDate).getBS();
 
     const adText = edd.toLocaleDateString("en-GB");
     const bsText =
