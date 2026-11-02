@@ -294,18 +294,7 @@ footer {
     Go to Current Week
   </button>
 
-  <div id="weeklyPregnancyContent">
-
-    <h3>👶 Baby's Development</h3>
-    <p id="babyDevelopment"></p>
-
-    <h3>🤰 Mother's Changes</h3>
-    <p id="motherChanges"></p>
-
-    <h3>🩺 Doctor's Advice</h3>
-    <p id="doctorAdvice"></p>
-
-  </div>
+ 
 
 </section>
 
@@ -2349,9 +2338,9 @@ document.getElementById("gestationalAge").textContent =
 document.getElementById("trimesterStatus").textContent =
   trimester;
 
-window.currentPregnancyWeek = weeks + 1;
-window.actualPregnancyWeek = weeks + 1;
-    showPregnancyWeek(window.currentPregnancyWeek);
+const weekToShow = Math.min(40, Math.max(1, weeks + 1));
+select.value = weekToShow;
+showWeek();
     const weekText = np
       ? `गर्भावस्थाको अवधि: ${weeks} हप्ता ${days} दिन`
       : `Gestational age: ${weeks} weeks + ${days} days`;
