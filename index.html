@@ -2160,8 +2160,16 @@ function showWeek() {
   const trimester = week <= 13 ? 1 : week <= 27 ? 2 : 3;
   const lang = isNepali ? 1 : 0;
 
-  document.getElementById("weekHeading").textContent =
-    (isNepali ? "गर्भावस्थाको हप्ता " : "Pregnancy Week ") + week;
+  const exactAge =
+  window.calculatedGestationalWeeks === week
+    ? (isNepali
+        ? ` (${week} हप्ता ${window.calculatedGestationalDays} दिन)`
+        : ` (${week} weeks + ${window.calculatedGestationalDays} days)`)
+    : "";
+
+document.getElementById("weekHeading").textContent =
+  (isNepali ? "गर्भावस्थाको हप्ता " : "Pregnancy Week ") +
+  week + exactAge;
 
   document.getElementById("trimester").textContent =
     (isNepali ? "त्रैमासिक " : "Trimester ") + trimester;
@@ -2304,7 +2312,8 @@ function calculateEDD() {
 
     const weeks = Math.floor(daysPregnant / 7);
     const days = daysPregnant % 7;
-
+window.calculatedGestationalWeeks = weeks;
+window.calculatedGestationalDays = days;
     let trimester;
     if (weeks < 14) {
       trimester = np ? "पहिलो त्रैमासिक" : "First trimester";
