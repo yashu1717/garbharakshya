@@ -346,31 +346,44 @@ footer {
     <div id="weekHeading"></div>
     <div id="trimester"></div>
 
-    <div class="cards">
+<div class="cards">
 
-      <div class="card">
-        <h3 data-en="👶 Baby's Development"
-            data-np="👶 शिशुको विकास">
-          👶 Baby's Development
-        </h3>
-        <p id="babyInfo">Select a week to begin.</p>
-      </div>
+  <div class="card">
+    <h3 data-en="👶 Baby's Development" data-np="👶 शिशुको विकास">👶 Baby's Development</h3>
+    <p id="babyInfo">Select a week to begin.</p>
+  </div>
 
-      <div class="card">
-        <h3 data-en="🤰 Mother's Changes"
-            data-np="🤰 आमाको परिवर्तन">
-          🤰 Mother's Changes
-        </h3>
-        <p id="motherInfo">Select a week to begin.</p>
-      </div>
+  <div class="card">
+    <h3 data-en="🤰 Changes in Mother" data-np="🤰 आमामा हुने परिवर्तन">🤰 Changes in Mother</h3>
+    <p id="motherInfo">Select a week to begin.</p>
+  </div>
 
-      <div class="card">
-        <h3 data-en="🩺 Doctor's Advice"
-            data-np="🩺 चिकित्सकको सुझाव">
-          🩺 Doctor's Advice
-        </h3>
-        <p id="doctorInfo">Select a week to begin.</p>
-      </div>
+  <div class="card">
+    <h3 data-en="🩺 Doctor's Advice" data-np="🩺 चिकित्सकको सुझाव">🩺 Doctor's Advice</h3>
+    <p id="doctorInfo">Select a week to begin.</p>
+  </div>
+
+  <div class="card">
+    <h3 data-en="🧪 Tests & Investigations" data-np="🧪 आवश्यक जाँचहरू">🧪 Tests & Investigations</h3>
+    <p id="testsInfo">Select a week to begin.</p>
+  </div>
+
+  <div class="card">
+    <h3 data-en="🥗 Nutrition & Supplements" data-np="🥗 पोषण तथा सप्लिमेन्ट">🥗 Nutrition & Supplements</h3>
+    <p id="nutritionInfo">Select a week to begin.</p>
+  </div>
+
+  <div class="card">
+    <h3 data-en="⚠️ Warning Signs" data-np="⚠️ खतराका संकेतहरू">⚠️ Warning Signs</h3>
+    <p id="warningInfo">Select a week to begin.</p>
+  </div>
+
+  <div class="card">
+    <h3 data-en="🌸 Lifestyle & Self-care" data-np="🌸 जीवनशैली तथा आफ्नो हेरचाह">🌸 Lifestyle & Self-care</h3>
+    <p id="lifestyleInfo">Select a week to begin.</p>
+  </div>
+
+</div>
 
     </div>
   </div>
@@ -902,15 +915,337 @@ for (let i = 1; i <= 40; i++) {
 
   weekGrid.appendChild(button);
 }
+  const weeklyGuideWeeks = {
+  1: {
+    baby: [
+      "Pregnancy is dated from the first day of your last menstrual period (LMP). At this stage, conception has usually not occurred yet.",
+      "गर्भावस्थाको गणना अन्तिम महिनावारी भएको पहिलो दिनबाट गरिन्छ। यस समयमा सामान्यतया गर्भाधान भइसकेको हुँदैन।"
+    ],
+
+    mother: [
+      "You may be having your menstrual period. Your body is preparing for a new menstrual cycle and possible pregnancy.",
+      "यस समयमा महिनावारी भइरहेको हुन सक्छ। तपाईंको शरीर नयाँ महिनावारी चक्र र सम्भावित गर्भधारणका लागि तयार हुँदैछ।"
+    ],
+
+    doctor: [
+      "Note the first day of your last menstrual period. This date helps estimate your expected delivery date. Consider a preconception consultation if planning pregnancy.",
+      "अन्तिम महिनावारी सुरु भएको पहिलो दिन टिपेर राख्नुहोस्। यसले सम्भावित प्रसूति मिति गणना गर्न मद्दत गर्छ। गर्भधारणको योजना बनाउँदै हुनुहुन्छ भने चिकित्सकसँग परामर्श गर्नुहोस्।"
+    ],
+
+    tests: [
+      "No routine pregnancy scan or blood test is needed at this stage. If planning pregnancy, discuss any existing health conditions and medications with your doctor.",
+      "यस समयमा नियमित गर्भावस्था स्क्यान वा रगत जाँच आवश्यक हुँदैन। गर्भधारणको योजना छ भने आफ्नो स्वास्थ्य समस्या र औषधिबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+    ],
+
+    nutrition: [
+      "Start folic acid 400 micrograms daily, ideally before conception. Eat a balanced diet with green vegetables, fruits, pulses, dairy or suitable alternatives, and adequate protein. Higher-dose folic acid is needed only for specific medical indications.",
+      "सम्भव भए गर्भधारण हुनुअघि नै दैनिक ४०० माइक्रोग्राम फोलिक एसिड सुरु गर्नुहोस्। हरियो सागसब्जी, फलफूल, दाल, दूध वा उपयुक्त विकल्प र पर्याप्त प्रोटिनयुक्त सन्तुलित खाना खानुहोस्। बढी मात्रा भएको फोलिक एसिड विशेष चिकित्सकीय अवस्थाहरूमा मात्र आवश्यक हुन्छ।"
+    ],
+
+    warning: [
+      "There are no pregnancy-specific warning signs expected at this stage. Seek medical care for unusually heavy menstrual bleeding, severe abdominal pain, or fainting.",
+      "यस समयमा गर्भावस्थासँग सम्बन्धित विशेष खतराका संकेत अपेक्षित हुँदैनन्। असामान्य रूपमा धेरै रक्तस्राव, पेटमा कडा दुखाइ वा बेहोस हुने अवस्था भए चिकित्सकीय सहायता लिनुहोस्।"
+    ],
+
+    lifestyle: [
+      "Avoid smoking, alcohol and recreational drugs. Review regular medicines with your doctor before pregnancy. Maintain regular physical activity, adequate sleep and healthy habits.",
+      "धूम्रपान, मदिरा तथा लागुऔषधबाट टाढा रहनुहोस्। नियमित औषधि सेवन गरिरहनुभएको छ भने गर्भधारणअघि चिकित्सकसँग छलफल गर्नुहोस्। नियमित शारीरिक गतिविधि, पर्याप्त निद्रा र स्वस्थ बानी अपनाउनुहोस्।"
+    ]
+  },
+      2: {
+    baby: [
+      "This week is still part of the menstrual cycle. Ovulation may occur near the end of this week in a typical 28-day cycle, but timing varies.",
+      "यो हप्ता अझै महिनावारी चक्रकै भाग हो। सामान्य २८ दिनको चक्रमा यस हप्ताको अन्त्यतिर अण्डोत्सर्जन हुन सक्छ, तर यसको समय फरक हुन सक्छ।"
+    ],
+
+    mother: [
+      "Your menstrual bleeding usually ends during this week. Hormonal changes help an egg mature in the ovary.",
+      "सामान्यतया यस हप्तामा महिनावारीको रक्तस्राव रोकिन्छ। हर्मोनको परिवर्तनले डिम्बाशयमा अण्डा परिपक्व हुन मद्दत गर्छ।"
+    ],
+
+    doctor: [
+      "If you are planning pregnancy, continue folic acid and review any medical conditions or regular medicines with your healthcare provider.",
+      "गर्भधारणको योजना छ भने फोलिक एसिड सेवन जारी राख्नुहोस्। आफ्नो स्वास्थ्य अवस्था र नियमित औषधिबारे स्वास्थ्यकर्मीसँग छलफल गर्नुहोस्।"
+    ],
+
+    tests: [
+      "No routine pregnancy test or ultrasound is needed this week. Further evaluation depends on your medical history and individual needs.",
+      "यस हप्ता नियमित गर्भ परीक्षण वा अल्ट्रासाउन्ड आवश्यक हुँदैन। थप जाँच तपाईंको स्वास्थ्य इतिहास र व्यक्तिगत आवश्यकताअनुसार गरिन्छ।"
+    ],
+
+    nutrition: [
+      "Continue folic acid 400 micrograms daily. Include lentils, beans, green vegetables, fruits, whole grains and protein-rich foods. Drink enough water.",
+      "दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। दाल, गेडागुडी, हरियो सागसब्जी, फलफूल, साबुत अन्न र प्रोटिनयुक्त खाना खानुहोस्। पर्याप्त पानी पिउनुहोस्।"
+    ],
+
+    warning: [
+      "Pregnancy-specific warning signs are not expected at this stage. Seek medical attention for severe abdominal pain, unusually heavy bleeding or fainting.",
+      "यस समयमा गर्भावस्थासँग सम्बन्धित खतराका संकेत अपेक्षित हुँदैनन्। पेटमा कडा दुखाइ, असामान्य धेरै रक्तस्राव वा बेहोस हुने अवस्था भए तुरुन्त चिकित्सकीय सहायता लिनुहोस्।"
+    ],
+
+    lifestyle: [
+      "Avoid tobacco and alcohol. Maintain regular exercise, adequate sleep and a healthy routine. If trying to conceive, consider discussing vaccination and medication safety with your doctor.",
+      "सुर्तीजन्य पदार्थ र मदिराबाट टाढा रहनुहोस्। नियमित व्यायाम, पर्याप्त निद्रा र स्वस्थ दिनचर्या अपनाउनुहोस्। गर्भधारणको प्रयास गर्दै हुनुहुन्छ भने खोप र औषधिको सुरक्षाबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+    ]
+  },
+  3: {
+    baby: [
+      "Fertilization usually occurs around this time in a typical cycle. The fertilized egg begins dividing as it travels towards the uterus.",
+      "सामान्य महिनावारी चक्रमा यस समयमा प्रायः निषेचन हुन्छ। निषेचित अण्डा विभाजन हुँदै पाठेघरतर्फ जान थाल्छ।"
+    ],
+    mother: [
+      "You may not notice any symptoms yet. Some women experience mild bloating, breast tenderness or no changes at all.",
+      "यस समयमा कुनै लक्षण महसुस नहुन पनि सक्छ। केही महिलामा पेट फुल्ने, स्तन दुख्ने वा कुनै परिवर्तन नदेखिने हुन सक्छ।"
+    ],
+    doctor: [
+      "Continue folic acid 400 micrograms daily. Remember that pregnancy is dated from the first day of your last menstrual period, not the date of fertilization.",
+      "दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। गर्भावस्थाको गणना निषेचन भएको दिनबाट नभई अन्तिम महिनावारीको पहिलो दिनबाट गरिन्छ।"
+    ],
+    tests: [
+      "A pregnancy test may still be negative this early. Routine ultrasound is not usually useful at this stage.",
+      "यति चाँडो गरिएको गर्भ परीक्षण नेगेटिभ आउन सक्छ। यस समयमा नियमित अल्ट्रासाउन्ड सामान्यतया उपयोगी हुँदैन।"
+    ],
+    nutrition: [
+      "Continue folic acid 400 micrograms daily. Eat balanced meals with lentils, beans, vegetables, fruits, whole grains and protein-rich foods. Avoid alcohol.",
+      "दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। दाल, गेडागुडी, तरकारी, फलफूल, साबुत अन्न र प्रोटिनयुक्त सन्तुलित खाना खानुहोस्। मदिरा सेवन नगर्नुहोस्।"
+    ],
+    warning: [
+      "Severe one-sided lower abdominal pain, fainting or heavy bleeding requires urgent medical assessment, especially if pregnancy is possible.",
+      "पेटको तल्लो भागको एकातिर कडा दुखाइ, बेहोस हुने वा धेरै रक्तस्राव भए तुरुन्त चिकित्सकीय जाँच गराउनुहोस्, विशेषगरी गर्भ रहने सम्भावना भएमा।"
+    ],
+    lifestyle: [
+      "Avoid smoking, alcohol and recreational drugs. Take adequate rest, stay active with comfortable exercise and review medicines with your doctor.",
+      "धूम्रपान, मदिरा तथा लागुऔषधबाट टाढा रहनुहोस्। पर्याप्त आराम गर्नुहोस्, सहज व्यायाम गर्नुहोस् र औषधिबारे चिकित्सकसँग सल्लाह लिनुहोस्।"
+    ]
+  },
+
+  4: {
+    baby: [
+      "Implantation usually occurs around this time. Early pregnancy tissues begin developing, including structures that will later support the embryo.",
+      "यस समयमा सामान्यतया पाठेघरको भित्तामा भ्रूणको आरोपण हुन्छ। भ्रूणलाई सहयोग गर्ने प्रारम्भिक संरचनाहरू विकास हुन थाल्छन्।"
+    ],
+    mother: [
+      "Your period may be due or missed. You may notice breast tenderness, tiredness, mild cramps or light spotting. Some women have no symptoms.",
+      "महिनावारी हुने समय आउन सक्छ वा महिनावारी रोकिन सक्छ। स्तन दुख्ने, थकान, हल्का पेट दुख्ने वा थोरै दाग देखिन सक्छ। केही महिलामा कुनै लक्षण हुँदैन।"
+    ],
+    doctor: [
+      "You can take a home pregnancy test around the time your period is due. If positive, arrange an antenatal visit and continue folic acid.",
+      "महिनावारी हुने समय आसपास घरमै गर्भ परीक्षण गर्न सक्नुहुन्छ। नतिजा पोजेटिभ आएमा गर्भ जाँचका लागि समय लिनुहोस् र फोलिक एसिड जारी राख्नुहोस्।"
+    ],
+    tests: [
+      "A urine pregnancy test can help confirm pregnancy. An ultrasound may be too early to show a pregnancy clearly; timing should be guided by your doctor.",
+      "पिसाबको गर्भ परीक्षणले गर्भ रहेको पुष्टि गर्न मद्दत गर्छ। अल्ट्रासाउन्डमा गर्भ स्पष्ट देखिन अझै चाँडो हुन सक्छ; जाँचको समय चिकित्सकको सल्लाहअनुसार तय गर्नुहोस्।"
+    ],
+    nutrition: [
+      "Continue folic acid 400 micrograms daily. Eat regular balanced meals and drink enough safe water. Avoid alcohol and foods that may carry infection risks, including unpasteurized dairy and undercooked meat or eggs.",
+      "दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। नियमित सन्तुलित खाना खानुहोस् र पर्याप्त सुरक्षित पानी पिउनुहोस्। मदिरा, पाश्चराइज नगरिएको दूध तथा राम्ररी नपकाएको मासु वा अण्डाबाट टाढा रहनुहोस्।"
+    ],
+    warning: [
+      "Seek urgent medical care for severe or one-sided abdominal pain, shoulder-tip pain, fainting, dizziness or heavy bleeding. These may indicate an ectopic pregnancy or another problem.",
+      "पेटको एकातिर वा कडा दुखाइ, काँधको टुप्पो दुख्ने, बेहोस हुने, चक्कर लाग्ने वा धेरै रक्तस्राव भए तुरुन्त अस्पताल जानुहोस्। यी पाठेघरबाहिरको गर्भ वा अन्य समस्याका संकेत हुन सक्छन्।"
+    ],
+    lifestyle: [
+      "Avoid alcohol, smoking and recreational drugs. Check the safety of regular medicines with your doctor. Rest when tired and continue gentle daily activity if comfortable.",
+      "मदिरा, धूम्रपान तथा लागुऔषधबाट टाढा रहनुहोस्। नियमित औषधिको सुरक्षाबारे चिकित्सकसँग सल्लाह लिनुहोस्। थकाइ लाग्दा आराम गर्नुहोस् र सहज भए हल्का दैनिक गतिविधि जारी राख्नुहोस्।"
+    ]
+  },
+
+  5: {
+    baby: [
+      "The embryo is developing rapidly. The neural tube, which forms the brain and spinal cord, is developing. Early heart structures and tiny limb buds are beginning to form.",
+      "भ्रूणको विकास तीव्र रूपमा भइरहेको हुन्छ। मस्तिष्क र मेरुदण्ड बन्ने न्युरल ट्युब विकास हुँदैछ। मुटुको प्रारम्भिक संरचना र हातखुट्टाका साना कोपिला बन्न थाल्छन्।"
+    ],
+    mother: [
+      "You may experience nausea, breast tenderness, tiredness, frequent urination or food aversions. Symptoms vary greatly between women.",
+      "वाकवाकी, स्तन दुख्ने, थकान, बारम्बार पिसाब लाग्ने वा केही खानेकुराप्रति अरुचि हुन सक्छ। लक्षण प्रत्येक महिलामा फरक हुन्छन्।"
+    ],
+    doctor: [
+      "Arrange your first antenatal appointment if you have not already done so. Review your medical history, previous pregnancies and medicines with your doctor.",
+      "अहिलेसम्म गर्भ जाँच सुरु गर्नुभएको छैन भने पहिलो जाँचका लागि समय लिनुहोस्। आफ्नो स्वास्थ्य इतिहास, अघिल्लो गर्भावस्था र औषधिबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+    ],
+    tests: [
+      "Initial antenatal blood and urine tests may be arranged according to local guidelines and your medical history. Ultrasound timing depends on symptoms and clinical need.",
+      "स्थानीय निर्देशिका र स्वास्थ्य इतिहासअनुसार प्रारम्भिक रगत तथा पिसाब जाँच गराउन सकिन्छ। अल्ट्रासाउन्डको समय लक्षण र चिकित्सकीय आवश्यकताअनुसार तय हुन्छ।"
+    ],
+    nutrition: [
+      "Continue folic acid 400 micrograms daily. Eat small, frequent meals if nauseated. Include protein-rich foods, iron-containing foods, fruits and vegetables. Drink enough water.",
+      "दैनिक ४०० माइक्रोग्राम फोलिक एसिड जारी राख्नुहोस्। वाकवाकी भए थोरै-थोरै गरी पटक-पटक खानुहोस्। प्रोटिन, आइरनयुक्त खाना, फलफूल र तरकारी खानुहोस्। पर्याप्त पानी पिउनुहोस्।"
+    ],
+    warning: [
+      "Seek urgent assessment for vaginal bleeding with pain, severe or one-sided abdominal pain, fainting, fever or inability to keep fluids down.",
+      "पेट दुखाइसँगै रक्तस्राव, पेटको एकातिर कडा दुखाइ, बेहोस हुने, ज्वरो आउने वा पानीसमेत पिउन नसक्ने गरी बान्ता भए तुरुन्त जाँच गराउनुहोस्।"
+    ],
+    lifestyle: [
+      "Get adequate sleep and continue gentle physical activity. Avoid smoking, alcohol and recreational drugs. Do not stop prescribed medicines without medical advice.",
+      "पर्याप्त निद्रा लिनुहोस् र सहज हल्का शारीरिक गतिविधि जारी राख्नुहोस्। धूम्रपान, मदिरा तथा लागुऔषधबाट टाढा रहनुहोस्। चिकित्सकीय सल्लाहबिना नियमित औषधि बन्द नगर्नुहोस्।"
+    ]
+  },
+      6: {
+    baby: [
+      "The embryo is growing rapidly. Early facial features, limb buds and the developing heart become more distinct. Cardiac activity may be visible on ultrasound, depending on dating and scan type.",
+      "भ्रूण तीव्र रूपमा बढिरहेको हुन्छ। अनुहारका प्रारम्भिक बनावट, हातखुट्टाका कोपिला र विकास हुँदै गरेको मुटु अझ स्पष्ट हुँदै जान्छन्। गर्भको सही उमेर र स्क्यानको प्रकारअनुसार अल्ट्रासाउन्डमा मुटुको धड्कन देखिन सक्छ।"
+    ],
+    mother: [
+      "Nausea, vomiting, tiredness, breast tenderness and frequent urination may continue or become more noticeable. Some women have few symptoms.",
+      "वाकवाकी, बान्ता, थकान, स्तन दुख्ने र बारम्बार पिसाब लाग्ने समस्या जारी रहन वा बढ्न सक्छ। केही महिलामा लक्षण कम पनि हुन सक्छन्।"
+    ],
+    doctor: [
+      "Arrange your first antenatal visit if you have not already done so. Discuss your medical history, medicines and any previous pregnancy complications.",
+      "अहिलेसम्म पहिलो गर्भ जाँच गराउनुभएको छैन भने समय लिनुहोस्। आफ्नो स्वास्थ्य इतिहास, औषधि र अघिल्लो गर्भावस्थाका जटिलताबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+    ],
+    tests: [
+      "Initial antenatal blood and urine tests may be arranged according to local guidelines. Ultrasound may be advised for specific indications; a scan that is too early may not show all expected findings.",
+      "स्थानीय निर्देशिकाअनुसार प्रारम्भिक रगत तथा पिसाब जाँच गराउन सकिन्छ। विशेष आवश्यकता भए अल्ट्रासाउन्ड गर्न सकिन्छ। धेरै चाँडो गरिएको स्क्यानमा सबै अपेक्षित कुरा नदेखिन सक्छन्।"
+    ],
+    nutrition: [
+      "Continue folic acid 400 micrograms daily through 12 weeks unless your doctor advises a different dose. Eat small frequent meals if nauseated. Include iron-rich foods, protein, fruits and vegetables.",
+      "चिकित्सकले फरक मात्रा नभनेसम्म १२ हप्तासम्म दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। वाकवाकी भए थोरै-थोरै गरी पटक-पटक खानुहोस्। आइरनयुक्त खाना, प्रोटिन, फलफूल र तरकारी खानुहोस्।"
+    ],
+    warning: [
+      "Seek urgent medical assessment for heavy bleeding, severe or one-sided abdominal pain, shoulder-tip pain, fainting or severe dizziness. Contact your doctor if vomiting prevents you from keeping fluids down.",
+      "धेरै रक्तस्राव, पेटको एकातिर वा कडा दुखाइ, काँधको टुप्पो दुख्ने, बेहोस हुने वा धेरै चक्कर लाग्ने भए तुरुन्त जाँच गराउनुहोस्। बान्ताका कारण पानीसमेत अडिन नसके चिकित्सकलाई सम्पर्क गर्नुहोस्।"
+    ],
+    lifestyle: [
+      "Rest when needed and continue comfortable daily activity. Avoid alcohol, smoking and recreational drugs. Check medicine safety with your doctor and avoid exposure to harmful chemicals.",
+      "आवश्यकताअनुसार आराम गर्नुहोस् र सहज दैनिक गतिविधि जारी राख्नुहोस्। मदिरा, धूम्रपान तथा लागुऔषधबाट टाढा रहनुहोस्। औषधिको सुरक्षाबारे चिकित्सकसँग सल्लाह लिनुहोस् र हानिकारक रसायनबाट बच्नुहोस्।"
+    ]
+  },
+
+  7: {
+    baby: [
+      "The embryo continues to grow. The brain and spinal cord develop further, and the arms and legs become more defined. Early facial structures are developing.",
+      "भ्रूणको विकास जारी रहन्छ। मस्तिष्क र मेरुदण्ड अझ विकसित हुन्छन् तथा हातखुट्टाको आकार स्पष्ट हुँदै जान्छ। अनुहारका प्रारम्भिक संरचनाहरू विकास भइरहेका हुन्छन्।"
+    ],
+    mother: [
+      "Nausea, food aversions, tiredness, breast tenderness and frequent urination may be present. Mild bloating and constipation can also occur.",
+      "वाकवाकी, खानाप्रति अरुचि, थकान, स्तन दुख्ने र बारम्बार पिसाब लाग्ने हुन सक्छ। पेट फुल्ने र कब्जियत पनि हुन सक्छ।"
+    ],
+    doctor: [
+      "Attend your antenatal appointment and discuss any ongoing symptoms. Do not stop prescribed medicines without discussing them with your doctor.",
+      "आफ्नो गर्भ जाँचमा जानुहोस् र भइरहेका लक्षणबारे चिकित्सकसँग छलफल गर्नुहोस्। चिकित्सकसँग सल्लाह नगरी नियमित औषधि बन्द नगर्नुहोस्।"
+    ],
+    tests: [
+      "Review initial antenatal investigations if already performed. Ultrasound is arranged according to clinical need and may be repeated if an early scan is inconclusive.",
+      "पहिले गरिएका प्रारम्भिक गर्भ जाँचका नतिजा समीक्षा गर्नुहोस्। चिकित्सकीय आवश्यकताअनुसार अल्ट्रासाउन्ड गरिन्छ। प्रारम्भिक स्क्यान स्पष्ट नभए पुनः जाँच गर्नुपर्ने हुन सक्छ।"
+    ],
+    nutrition: [
+      "Continue folic acid 400 micrograms daily. Include lentils, beans, dairy or alternatives, nuts, fruits and vegetables. Eat small frequent meals if nausea is troublesome and drink enough water.",
+      "दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। दाल, गेडागुडी, दूध वा विकल्प, बदाम, फलफूल र तरकारी खानुहोस्। वाकवाकी भए थोरै-थोरै गरी पटक-पटक खानुहोस् र पर्याप्त पानी पिउनुहोस्।"
+    ],
+    warning: [
+      "Heavy bleeding, severe abdominal pain, one-sided pain, fainting or fever needs prompt medical assessment. Seek help if vomiting causes dehydration.",
+      "धेरै रक्तस्राव, पेटमा कडा दुखाइ, एकातिर दुखाइ, बेहोस हुने वा ज्वरो आएमा तुरुन्त जाँच गराउनुहोस्। बान्ताका कारण शरीरमा पानीको कमी भए सहायता लिनुहोस्।"
+    ],
+    lifestyle: [
+      "Aim for adequate sleep and gentle physical activity. Avoid smoking, alcohol and recreational drugs. Wash fruits and vegetables well and practise good food hygiene.",
+      "पर्याप्त निद्रा लिनुहोस् र सहज शारीरिक गतिविधि गर्नुहोस्। धूम्रपान, मदिरा तथा लागुऔषधबाट टाढा रहनुहोस्। फलफूल र तरकारी राम्ररी धुनुहोस् तथा खानाको सरसफाइमा ध्यान दिनुहोस्।"
+    ]
+  },
+
+  8: {
+    baby: [
+      "The embryo is growing and developing rapidly. Fingers and toes begin to take shape, and the face becomes more recognisable. Major organs continue developing.",
+      "भ्रूण तीव्र रूपमा बढ्दै र विकसित हुँदैछ। हातका औँला र खुट्टाका औँलाको आकार बन्न थाल्छ तथा अनुहार अझ चिन्न सकिने हुँदै जान्छ। मुख्य अङ्गहरूको विकास जारी रहन्छ।"
+    ],
+    mother: [
+      "Nausea, vomiting, tiredness, breast changes, bloating and constipation may continue. Emotional changes can also occur.",
+      "वाकवाकी, बान्ता, थकान, स्तनमा परिवर्तन, पेट फुल्ने र कब्जियत हुन सक्छ। भावनात्मक परिवर्तन पनि हुन सक्छ।"
+    ],
+    doctor: [
+      "Continue regular antenatal care. Discuss screening options and the appropriate timing of ultrasound with your healthcare provider.",
+      "नियमित गर्भ जाँच जारी राख्नुहोस्। स्क्रिनिङका विकल्प र अल्ट्रासाउन्ड गर्ने उपयुक्त समयबारे चिकित्सकसँग छलफल गर्नुहोस्।"
+    ],
+    tests: [
+      "Review initial antenatal blood and urine tests. First-trimester screening options can be discussed. NIPT is generally available from 10 weeks, depending on local availability and individual circumstances.",
+      "प्रारम्भिक रगत तथा पिसाब जाँचका नतिजा समीक्षा गर्नुहोस्। पहिलो त्रैमासिकको स्क्रिनिङबारे छलफल गर्न सकिन्छ। स्थानीय उपलब्धता र व्यक्तिगत अवस्थाअनुसार NIPT सामान्यतया १० हप्तादेखि गर्न सकिन्छ।"
+    ],
+    nutrition: [
+      "Continue folic acid 400 micrograms daily through 12 weeks unless advised otherwise. Include protein, iron-rich foods, fruits and vegetables. Small frequent meals may help nausea.",
+      "चिकित्सकले फरक सल्लाह नदिएसम्म १२ हप्तासम्म दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। प्रोटिन, आइरनयुक्त खाना, फलफूल र तरकारी खानुहोस्। थोरै-थोरै गरी पटक-पटक खाँदा वाकवाकी कम हुन सक्छ।"
+    ],
+    warning: [
+      "Seek urgent care for heavy bleeding, severe or one-sided abdominal pain, fainting, fever or severe vomiting with dehydration.",
+      "धेरै रक्तस्राव, पेटको एकातिर वा कडा दुखाइ, बेहोस हुने, ज्वरो आउने वा शरीरमा पानीको कमी हुने गरी बान्ता भए तुरुन्त अस्पताल जानुहोस्।"
+    ],
+    lifestyle: [
+      "Continue gentle exercise if comfortable. Take breaks when tired and avoid smoking, alcohol and recreational drugs. Seek support if anxiety or low mood is affecting daily life.",
+      "सहज भए हल्का व्यायाम जारी राख्नुहोस्। थकाइ लाग्दा आराम गर्नुहोस् र धूम्रपान, मदिरा तथा लागुऔषधबाट टाढा रहनुहोस्। चिन्ता वा उदासीले दैनिक जीवनमा असर गरे सहयोग लिनुहोस्।"
+    ]
+  },
+
+  9: {
+    baby: [
+      "The embryo's body becomes more defined. Joints and muscles continue developing, and the heart and other organs continue maturing. The embryo is still very small.",
+      "भ्रूणको शरीरको आकार अझ स्पष्ट हुँदै जान्छ। जोर्नी र मांसपेशीको विकास जारी रहन्छ तथा मुटु र अन्य अङ्गहरू परिपक्व हुँदै जान्छन्। भ्रूण अझै निकै सानो हुन्छ।"
+    ],
+    mother: [
+      "You may continue to experience nausea, tiredness, breast tenderness, bloating and constipation. Some women begin to feel slightly better, while others still have symptoms.",
+      "वाकवाकी, थकान, स्तन दुख्ने, पेट फुल्ने र कब्जियत जारी रहन सक्छ। केही महिलालाई अलि सहज महसुस हुन थाल्छ भने केहीमा लक्षण रहिरहन्छन्।"
+    ],
+    doctor: [
+      "Discuss first-trimester screening choices and timing with your doctor. Screening estimates the chance of certain conditions; it does not provide a definite diagnosis.",
+      "पहिलो त्रैमासिकको स्क्रिनिङका विकल्प र समयबारे चिकित्सकसँग छलफल गर्नुहोस्। स्क्रिनिङले केही अवस्थाको सम्भावना अनुमान गर्छ, निश्चित निदान गर्दैन।"
+    ],
+    tests: [
+      "NIPT may be performed from 10 weeks. Combined first-trimester screening is usually performed between 11 weeks and 13 weeks plus 6 days. The appropriate option depends on your circumstances and local availability.",
+      "NIPT सामान्यतया १० हप्तादेखि गर्न सकिन्छ। संयुक्त पहिलो त्रैमासिक स्क्रिनिङ सामान्यतया ११ हप्तादेखि १३ हप्ता ६ दिनसम्म गरिन्छ। उपयुक्त विकल्प तपाईंको अवस्था र स्थानीय उपलब्धतामा निर्भर गर्छ।"
+    ],
+    nutrition: [
+      "Continue folic acid 400 micrograms daily through 12 weeks unless your doctor advises otherwise. Eat a varied diet with protein, iron, calcium, fruits and vegetables. Maintain adequate fluid intake.",
+      "चिकित्सकले फरक सल्लाह नदिएसम्म १२ हप्तासम्म दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। प्रोटिन, आइरन, क्याल्सियम, फलफूल र तरकारीयुक्त विविध खाना खानुहोस्। पर्याप्त झोल पदार्थ पिउनुहोस्।"
+    ],
+    warning: [
+      "Heavy bleeding, severe abdominal pain, one-sided pain, fainting or fever requires prompt medical assessment. Seek help if you cannot keep fluids down.",
+      "धेरै रक्तस्राव, पेटमा कडा दुखाइ, एकातिर दुखाइ, बेहोस हुने वा ज्वरो आएमा तुरुन्त जाँच गराउनुहोस्। पानीसमेत अडिन नसक्ने गरी बान्ता भए सहायता लिनुहोस्।"
+    ],
+    lifestyle: [
+      "Prioritise rest, gentle activity and emotional wellbeing. Avoid alcohol, smoking and recreational drugs. Keep antenatal appointments and discuss any concerns with your care team.",
+      "आराम, सहज शारीरिक गतिविधि र भावनात्मक स्वास्थ्यलाई प्राथमिकता दिनुहोस्। मदिरा, धूम्रपान तथा लागुऔषधबाट टाढा रहनुहोस्। गर्भ जाँचमा नियमित जानुहोस् र आफ्ना चिन्ता स्वास्थ्यकर्मीसँग छलफल गर्नुहोस्।"
+    ]
+  },
+
+  10: {
+    baby: [
+      "By the end of this week, the embryonic period is complete and the developing baby is called a fetus. Major body structures have formed and will continue to grow and mature.",
+      "यस हप्ताको अन्त्यसम्म भ्रूणको प्रारम्भिक विकास अवधि पूरा हुन्छ र विकसित हुँदै गरेको शिशुलाई फेटस भनिन्छ। शरीरका मुख्य संरचनाहरू बनिसकेका हुन्छन् र तिनको वृद्धि तथा परिपक्वता जारी रहन्छ।"
+    ],
+    mother: [
+      "Nausea, tiredness, breast tenderness and constipation may continue. Some women begin to notice improvement in symptoms over the coming weeks.",
+      "वाकवाकी, थकान, स्तन दुख्ने र कब्जियत जारी रहन सक्छ। आगामी हप्ताहरूमा केही महिलामा लक्षण कम हुन थाल्न सक्छन्।"
+    ],
+    doctor: [
+      "Review your antenatal care plan and discuss available screening options. Ask your doctor about any medicines or supplements you are taking.",
+      "आफ्नो गर्भ जाँचको योजना समीक्षा गर्नुहोस् र उपलब्ध स्क्रिनिङका विकल्पबारे छलफल गर्नुहोस्। सेवन गरिरहेका औषधि वा सप्लिमेन्टबारे चिकित्सकसँग सोध्नुहोस्।"
+    ],
+    tests: [
+      "NIPT is generally available from 10 weeks. Combined first-trimester screening is usually performed at 11 weeks to 13 weeks plus 6 days. Ultrasound timing should follow clinical guidance.",
+      "NIPT सामान्यतया १० हप्तादेखि गर्न सकिन्छ। संयुक्त पहिलो त्रैमासिक स्क्रिनिङ सामान्यतया ११ हप्तादेखि १३ हप्ता ६ दिनसम्म गरिन्छ। अल्ट्रासाउन्डको समय चिकित्सकीय सल्लाहअनुसार तय गर्नुहोस्।"
+    ],
+    nutrition: [
+      "Continue folic acid 400 micrograms daily through 12 weeks unless advised otherwise. Eat balanced meals with protein, iron, calcium and fibre. Include fruits, vegetables and adequate fluids.",
+      "चिकित्सकले फरक सल्लाह नदिएसम्म १२ हप्तासम्म दैनिक ४०० माइक्रोग्राम फोलिक एसिड सेवन जारी राख्नुहोस्। प्रोटिन, आइरन, क्याल्सियम र फाइबरयुक्त सन्तुलित खाना खानुहोस्। फलफूल, तरकारी र पर्याप्त झोल पदार्थ समावेश गर्नुहोस्।"
+    ],
+    warning: [
+      "Seek urgent medical attention for heavy bleeding, severe or one-sided abdominal pain, fainting, fever or persistent vomiting with signs of dehydration.",
+      "धेरै रक्तस्राव, पेटको एकातिर वा कडा दुखाइ, बेहोस हुने, ज्वरो आउने वा शरीरमा पानीको कमी हुने संकेतसहित लगातार बान्ता भए तुरुन्त चिकित्सकीय सहायता लिनुहोस्।"
+    ],
+    lifestyle: [
+      "Continue comfortable daily activity and get adequate sleep. Avoid smoking, alcohol and recreational drugs. Keep appointments and plan ahead for first-trimester screening.",
+      "सहज दैनिक गतिविधि जारी राख्नुहोस् र पर्याप्त निद्रा लिनुहोस्। धूम्रपान, मदिरा तथा लागुऔषधबाट टाढा रहनुहोस्। गर्भ जाँचमा जानुहोस् र पहिलो त्रैमासिकको स्क्रिनिङका लागि योजना बनाउनुहोस्।"
+    ]
+  },
+};
 function showWeek() {
 
   const week = Number(select.value);
-
   if (!week) return;
-document.querySelectorAll(".week-btn").forEach((button, index) => {
-  button.classList.toggle("active", index + 1 === week);
-});
+
+  document.querySelectorAll(".week-btn").forEach((button, index) => {
+    button.classList.toggle("active", index + 1 === week);
+  });
+
   const trimester = week <= 13 ? 1 : week <= 27 ? 2 : 3;
+  const lang = isNepali ? 1 : 0;
 
   document.getElementById("weekHeading").textContent =
     (isNepali ? "गर्भावस्थाको हप्ता " : "Pregnancy Week ") + week;
@@ -918,24 +1253,18 @@ document.querySelectorAll(".week-btn").forEach((button, index) => {
   document.getElementById("trimester").textContent =
     (isNepali ? "त्रैमासिक " : "Trimester ") + trimester;
 
-  document.getElementById("babyInfo").textContent =
-    pregnancyWeeks[week][isNepali ? 1 : 0];
+  const guide = weeklyGuideWeeks[week];
 
-  document.getElementById("motherInfo").textContent =
-  motherWeeks[week]
-    ? motherWeeks[week][isNepali ? 1 : 0]
-    : (isNepali
-      ? "यस समयमा आमाको शरीरमा विभिन्न परिवर्तन हुन सक्छन्।"
-      : "Your body may experience different changes during this stage.");
+  if (!guide) return;
 
-  document.getElementById("doctorInfo").textContent =
-  doctorWeeks[week]
-    ? doctorWeeks[week][isNepali ? 1 : 0]
-    : (isNepali
-      ? "नियमित गर्भ जाँच गर्नुहोस्। कुनै समस्या भए चिकित्सकसँग सम्पर्क गर्नुहोस्।"
-      : "Attend regular antenatal checkups and contact your doctor if you have concerns.");
+  document.getElementById("babyInfo").textContent = guide.baby[lang];
+  document.getElementById("motherInfo").textContent = guide.mother[lang];
+  document.getElementById("doctorInfo").textContent = guide.doctor[lang];
+  document.getElementById("testsInfo").textContent = guide.tests[lang];
+  document.getElementById("nutritionInfo").textContent = guide.nutrition[lang];
+  document.getElementById("warningInfo").textContent = guide.warning[lang];
+  document.getElementById("lifestyleInfo").textContent = guide.lifestyle[lang];
 }
-
 function changeLanguage() {
 
   isNepali = !isNepali;
